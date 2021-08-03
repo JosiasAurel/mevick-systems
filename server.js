@@ -31,6 +31,10 @@ app.get("/:page", (req, res) => {
 
 app.get("/home/{page}", (req, res) => {
 
+    res.render(`/dasboard/${req.params.page}`);
+});
+
+app.get("/explore", (req, res) => {
     let sampleArticle = {
         title: "It works",
         shortDescription: "Does it really work ?",
@@ -38,10 +42,10 @@ app.get("/home/{page}", (req, res) => {
         publishDate: "Aug 03 2021"
     };
 
-    res.render(`/dasboard/${req.params.page}`, {
-        article: article
+    res.render("explore/index", {
+        article: "Hello"
     });
-});
+})
 
 app.get("/dashboard/{page}", (req, res) => {
     res.render(`/dashboard/${req.params.page}`);
