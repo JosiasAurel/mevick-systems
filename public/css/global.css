@@ -66,3 +66,7 @@ img.background {
   display: flex;
   flex-direction: column;
 }
+
+input:focus {
+  outline: none;
+}
