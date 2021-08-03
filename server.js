@@ -25,5 +25,9 @@ app.get("/explore", (req, res) => {
     res.render("explore")
 });
 
+app.get("/home", (req, res) => {
+    res.render("home");
+});
+
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
