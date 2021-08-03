@@ -36,6 +36,44 @@ function createUser(name, email, password, role) {
     }
 }
 
+function updateUser(userId, { name, email, password }) {
+
+    let isFetchUserError = false;
+    let isUpdateUserError = false;
+    let userInfo;
+
+    User.findById(userId, (error, user_) => {
+        if (error) {
+            isFetchUserError = true;
+            return;
+        }
+
+        let name_ = name ? name : user_.name;
+        let email_ = email ? email : user_;
+        let password_ = password ? password : user_.password;
+
+        User.findByIdAndUpdate(userid, {name: name_, email: email_, password: password_}, (error, updatedUser_) => {
+            if (error) {
+                isUpdateUserError = true;
+                return;
+            }
+            
+        });
+    });
+
+    if (!isFetchUserError) {
+        if (!isUpdateUserError) {
+            return {status: true}
+        } else {
+            return {status: "Could not update User"}
+        }
+    } else {
+        return {status: `Could not find User with id ${userId}`}
+    }
+
+
+}
+
 function deleteUser(userId) {
 
     let isSuccess = false;
