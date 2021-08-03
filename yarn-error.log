@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\sndem\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express ejs --offline
+
+PATH: 
+  C:\Users\sndem\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\sndem\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\4.4\bin;C:\Program Files\nodejs\;C:\Go\bin;C:\Program Files\erl10.3\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\IncrediBuild;C:\Users\sndem\.cargo\bin;C:\Users\sndem\AppData\Local\Programs\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Pandoc\;C:\Users\sndem\AppData\Local\Microsoft\WindowsApps;C:\Users\sndem\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sndem\.deta\bin;C:\Program Files\Inkscape\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3\bin;C:\Users\sndem\AppData\Local\hyper\app-3.0.2\resources\bin;C:\curl-7.75.0-win64-mingw\bin;C:\Users\sndem\AppData\Roaming\npm;C:\Users\sndem\go\bin;C:\Program Files (x86)\GnuWin32\bin;C:\nim-1.4.4\bin;C:\josias\webdriver;C:\Users\sndem\AppData\Local\bin\NASM;C:\Program Files\qemu;C:\josias\bin;C:\ffmpeg\bin;C:\emscripten\install\bin;C:\emscripten\install\emscripten;C:\emscripten\binaryen-version_101\bin;C:\Program Files\CMake\bin;C:\josias\nim-1.4.8\bin;C:\Users\sndem\.nimble\bin;C:\emscripten\install\bin;C:\Program Files\Mono\bin;C:\josias\bin;C:\Program Files\Tesseract-OCR;C:\tools\neovim\Neovim\bin;C:\Users\sndem\AppData\Local\Pandoc\;C:\Program Files\wkhtmltopdf\bin;C:\Program Files\OpenSSL-Win64\bin;C:\raylib\mingw\bin;C:\josias\haxe;
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Invariant Violation: There should only be one folder in a package cache (got  in C:\Users\sndem\AppData\Local\Yarn\Cache\v6\npm-csstype-3.0.6-865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef-integrity\node_modules)
+      at invariant (C:\Users\sndem\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:2314:15)
+      at C:\Users\sndem\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:60674:7
+      at Generator.next (<anonymous>)
+      at step (C:\Users\sndem\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\sndem\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "mevick-site",
+    "version": "1.0.0",
+    "description": "A simple cool site with EJS and node",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest",
+      "dev": "nodemon --watch . --exec node server.js"
+    },
+    "keywords": [
+      "site",
+      "webapp"
+    ],
+    "author": "Josias Aurel",
+    "license": "MIT",
+    "dependencies": {
+      "ejs": "^3.1.6",
+      "express": "^4.17.1",
+      "nodemon": "^2.0.12"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
