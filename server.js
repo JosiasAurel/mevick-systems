@@ -16,6 +16,7 @@ ejs.fileLoader = componentsLoader;
  */
 
 // set templating engine
+app.set("views", "views");
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
@@ -51,5 +52,6 @@ app.get("/explore", (req, res) => {
 app.get("/dashboard/{page}", (req, res) => {
     res.render(`/dashboard/${req.params.page}`);
 });
+
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
