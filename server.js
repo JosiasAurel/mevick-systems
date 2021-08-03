@@ -13,20 +13,8 @@ app.get('/', (req, res) => {
     res.render("index");
 });
 
-app.get("/signup", (req, res) => {
-    res.render("signup")
-});
-
-app.get("/login", (req, res) => {
-    res.render("login")
-});
-
-app.get("/explore", (req, res) => {
-    res.render("explore")
-});
-
-app.get("/home", (req, res) => {
-    res.render("home");
+app.get("/{page}", (req, res) => {
+    res.render(req.params.page);
 });
 
 
