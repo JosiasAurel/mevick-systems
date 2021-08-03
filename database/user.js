@@ -5,12 +5,16 @@
 
 const { User } = require("../models/index");
 
+// this function will also be used to sign up a user
 function createUser(name, email, password, role) {
 
+    // we want to check if there was an error creating the user
     let isSuccess = false;
 
+    // the user registration date is date string on of server timetzone
     let userRegistrationDate = new Date().toString();
 
+    // creating the user
     let newUser = User.create({
         name,
         email,
@@ -25,8 +29,12 @@ function createUser(name, email, password, role) {
         isSuccess = true;
     });
 
+    // save the user in the database
     newUser.save(); // save newly created user to database
 
+    // check status before proceeding
+
+    // -> handling fail safe
     if (isSuccess) {
         return {
             status: "success"
@@ -36,25 +44,29 @@ function createUser(name, email, password, role) {
     }
 }
 
+// handler for updating users in the database
 function updateUser(userId, { name, email, password }) {
 
-    let isFetchUserError = false;
-    let isUpdateUserError = false;
+
+    let isFetchUserError = false; // checker for fetching old user data -> has is passed or failed ?
+    let isUpdateUserError = false; // checker if the user update is a success or a
     let userInfo;
 
     User.findById(userId, (error, user_) => {
         if (error) {
-            isFetchUserError = true;
+            isFetchUserError = true; // set fetch error if failed
             return;
         }
 
-        let name_ = name ? name : user_.name;
+        // below is pretty straight forward
+        let name_ = name ? name : user_.name; 
         let email_ = email ? email : user_;
         let password_ = password ? password : user_.password;
 
+        // try updating the user
         User.findByIdAndUpdate(userid, {name: name_, email: email_, password: password_}, (error, updatedUser_) => {
             if (error) {
-                isUpdateUserError = true;
+                isUpdateUserError = true; // set update error if update fails
                 return;
             }
             
@@ -74,10 +86,12 @@ function updateUser(userId, { name, email, password }) {
 
 }
 
+// handler for deleting a user 
 function deleteUser(userId) {
 
-    let isSuccess = false;
+    let isSuccess = false; // checker for operation success
 
+    // try deleting the user
     User.findByIdAndDelete(userId, (error, _) => {
         if (error) {
             return;
@@ -92,3 +106,26 @@ function deleteUser(userId) {
         return { status: false }
     }
 }
+
+// handler for logging in a user
+function loginUser(email, password) {
+
+    let isLoginError = false;
+    let user_;
+
+    User.find({email, password}, (error, user) => {
+        if (error) {
+            isLoginError = true;
+        }
+
+        user_ = user;
+    });
+
+    if (!isLoginError) {
+        { token: user_._id }
+    } else {
+        { token: "Error" }
+    }
+}
+
+modules.exports = { createUser, updateUser, deleteUser, loginUser };
