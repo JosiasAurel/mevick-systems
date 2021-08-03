@@ -35,3 +35,22 @@ function createUser(name, email, password, role) {
         return { status: false }
     }
 }
+
+function deleteUser(userId) {
+
+    let isSuccess = false;
+
+    User.findByIdAndDelete(userId, (error, _) => {
+        if (error) {
+            return;
+        }
+
+        isSuccess = true;
+    });
+
+    if (isSuccess) {
+        return {status: true}
+    } else {
+        return { status: false }
+    }
+}
