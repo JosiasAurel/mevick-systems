@@ -35,12 +35,13 @@ app.get("/home/{page}", (req, res) => {
 });
 
 app.get("/explore", (req, res) => {
-    let sampleArticle = {
+
+    /* let sampleArticle = {
         title: "It works",
         shortDescription: "Does it really work ?",
         readTime: "2",
         publishDate: "Aug 03 2021"
-    };
+    }; */
 
     res.render("explore/index", {
         article: "Hello"
