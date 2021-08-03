@@ -34,11 +34,11 @@ app.get("/home/{page}", (req, res) => {
     let sampleArticle = {
         title: "It works",
         shortDescription: "Does it really work ?",
-        readTime: "2",03 2021"
+        readTime: "2",
+        publishDate: "Aug 03 2021"
     };
 
-    res.render(`/das
-        publishDate: "Aug hboard/${req.params.page}`, {
+    res.render(`/dasboard/${req.params.page}`, {
         article: article
     });
 });
