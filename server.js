@@ -110,6 +110,17 @@ app.post("/articles", (req, res) => {
     
 });
 
+app.put("/articles/:articleId", (req, res) => {
+
+    // get the article ID from query parameters
+    const articleId = req.params.articleId;
+
+    const { title, content } = req.body;
+
+    let updatedArticle = updateArticle(articleId, { title, content });
+
+    res.send(updatedArticle);
+});
 
 /* End API Routes */
 
