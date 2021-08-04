@@ -1,7 +1,15 @@
 const express = require("express");
-const ejs = require("ejs");
 const { readFileSync } = require("fs");
 const path = require("path");
+const mongoose = require("mongoose");
+const { MONGO_DB_URI__DEV } = require("./serviceConfig");
+
+
+// init database connection
+mongoose.connect(MONGO_DB_URI__DEV, { useUnifiedTopology: true, useNewUrlParser: true });
+
+// database CRUD handlers
+const { createUser } = require("./database/user");
 
 const app = express();
 
@@ -47,6 +55,21 @@ app.get("/:page", (req, res) => {
 app.get("/dashboard/{page}", (req, res) => {
     res.render(`/dashboard/${req.params.page}`);
 });
+
+/* API Routes */
+app.post("/user", (req, res) => {
+
+    // extract new user data 
+    const { name, email, password, role } = req.body;
+    let result;
+
+    if (name !== "" && email !== "" && password !== "" && role !== "") {
+        result = createUser(name, email, password, role);
+    }
+
+    return result;
+});
+/* End API Routes */
 
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

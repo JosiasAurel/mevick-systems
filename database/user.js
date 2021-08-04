@@ -6,7 +6,7 @@
 const { User } = require("../models/index");
 
 // this function will also be used to sign up a user
-function createUser(name, email, password, role) {
+async function createUser(name, email, password, role) {
 
     // we want to check if there was an error creating the user
     let isSuccess = false;
@@ -15,7 +15,7 @@ function createUser(name, email, password, role) {
     let userRegistrationDate = new Date().toString();
 
     // creating the user
-    let newUser = User.create({
+    let newUser = new User({
         name,
         email,
         password,
@@ -30,7 +30,7 @@ function createUser(name, email, password, role) {
     });
 
     // save the user in the database
-    newUser.save(); // save newly created user to database
+    await newUser.save(); // save newly created user to database
 
     // check status before proceeding
 
@@ -128,4 +128,4 @@ function loginUser(email, password) {
     }
 }
 
-modules.exports = { createUser, updateUser, deleteUser, loginUser };
+module.exports = { createUser, updateUser, deleteUser, loginUser };
