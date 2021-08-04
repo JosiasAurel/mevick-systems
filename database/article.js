@@ -58,4 +58,22 @@ function updateArticle(articleId, {title, content}) {
     }
 }   
 
-module.exports = { createArticle, updateArticle };
+function deleteArticle(articleId) {
+
+    let deleted_ = false;
+
+    Article.findByIdAndDelete(articleId, (errror, _) => {
+        if (error) {
+            deleted_ = true;
+        }
+        // pass...
+    });
+
+    if (deleted_) {
+        return {status: true}
+    } else {
+        return {status: false}
+    }
+}
+
+module.exports = { createArticle, updateArticle, deleteArticle };

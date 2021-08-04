@@ -10,7 +10,7 @@ mongoose.connect(MONGO_DB_URI__DEV, { useUnifiedTopology: true, useNewUrlParser:
 
 // database CRUD handlers
 const { createUser, updateUser, deleteUser } = require("./database/user");
-const { createArticle, updateArticle } = require("./database/article");
+const { createArticle, updateArticle, deleteArticle } = require("./database/article");
 
 const app = express();
 
@@ -120,6 +120,16 @@ app.put("/articles/:articleId", (req, res) => {
     let updatedArticle = updateArticle(articleId, { title, content });
 
     res.send(updatedArticle);
+});
+
+app.delete("/articles/:article", (req, res) => {
+
+    // get article ID from query parameters
+    const articleId = req.params.article;
+
+    let deletedArticle_ = deleteArticle(articleId);
+
+    res.send(deletedArticle_);
 });
 
 /* End API Routes */
