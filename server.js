@@ -98,6 +98,8 @@ app.delete("/user/:userId", (req, res) => {
     
 });
 
+// Routes for articles
+
 /* End API Routes */
 
 
