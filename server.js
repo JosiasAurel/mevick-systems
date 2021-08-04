@@ -69,7 +69,8 @@ app.post("/user", (req, res) => {
     const { name, email, password, role } = req.body;
 
     if (name !== "" && email !== "" && password !== "" && role !== "") {
-        res.send(createUser(name, email, password, role));
+        // res.send();
+        createUser(name, email, password, role, res);
     }
 });
 

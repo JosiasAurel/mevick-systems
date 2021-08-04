@@ -6,7 +6,7 @@
 const { User } = require("../models/index");
 
 // this function will also be used to sign up a user
-function createUser(name, email, password, role) {
+function createUser(name, email, password, role, res) {
 
     let isSuccess = false;
 
@@ -29,13 +29,14 @@ function createUser(name, email, password, role) {
         }
 
         isSuccess = true;
-        createdUser__ = createdUser;
+        // createdUser__ = createdUser;
 
         // console.log(isSuccess);
+        res.send({ status: isSuccess });
     });
 
-    
-    return {status: isSuccess}
+    // setTimeout((() => undefined), 2000);
+    // return {status: isSuccess};
 }
 
 // handler for updating users in the database
