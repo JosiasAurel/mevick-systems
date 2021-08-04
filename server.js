@@ -1,6 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
 const { readFileSync } = require("fs");
+const path = require("path");
 
 const app = express();
 
@@ -16,7 +17,7 @@ ejs.fileLoader = componentsLoader;
  */
 
 // set templating engine
-app.set("views", "views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
@@ -26,16 +27,7 @@ app.get('/', (req, res) => {
     res.render("index");
 });
 
-app.get("/:page", (req, res) => {
-    res.render(req.params.page);
-});
-
-app.get("/home/{page}", (req, res) => {
-
-    res.render(`/dasboard/${req.params.page}`);
-});
-
-app.get("/explore", (req, res) => {
+app.get("/explore/", (req, res) => {
 
     /* let sampleArticle = {
         title: "It works",
@@ -44,10 +36,13 @@ app.get("/explore", (req, res) => {
         publishDate: "Aug 03 2021"
     }; */
 
-    res.render("explore/index", {
-        article: "Hello"
-    });
+    res.render("explore", { msg: "Test" })
 })
+
+app.get("/:page", (req, res) => {
+    res.render(req.params.page);
+});
+
 
 app.get("/dashboard/{page}", (req, res) => {
     res.render(`/dashboard/${req.params.page}`);
