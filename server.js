@@ -25,6 +25,9 @@ const componentsLoader = (path) => {
 ejs.fileLoader = componentsLoader;
  */
 
+// accept JSON data
+app.use(express.json());
+
 // set templating engine
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -64,13 +67,10 @@ app.post("/user", (req, res) => {
 
     // extract new user data 
     const { name, email, password, role } = req.body;
-    let result;
 
     if (name !== "" && email !== "" && password !== "" && role !== "") {
-        result = createUser(name, email, password, role);
+        res.send(createUser(name, email, password, role));
     }
-
-    res.send(result);
 });
 
 // update user endpoint

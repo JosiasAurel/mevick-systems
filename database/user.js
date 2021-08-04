@@ -6,9 +6,8 @@
 const { User } = require("../models/index");
 
 // this function will also be used to sign up a user
-async function createUser(name, email, password, role) {
+function createUser(name, email, password, role) {
 
-    // we want to check if there was an error creating the user
     let isSuccess = false;
 
     // the user registration date is date string on of server timetzone
@@ -21,27 +20,22 @@ async function createUser(name, email, password, role) {
         password,
         role,
         registrationDate: userRegistrationDate
-    }, (error, createdUser) => {
+    });
+
+    // save the user in the database
+    newUser.save((error, createdUser) => {
         if (error) {
             return;
         }
 
         isSuccess = true;
+        createdUser__ = createdUser;
+
+        // console.log(isSuccess);
     });
 
-    // save the user in the database
-    await newUser.save(); // save newly created user to database
-
-    // check status before proceeding
-
-    // -> handling fail safe
-    if (isSuccess) {
-        return {
-            status: "success"
-        }
-    } else {
-        return { status: false }
-    }
+    
+    return {status: isSuccess}
 }
 
 // handler for updating users in the database
