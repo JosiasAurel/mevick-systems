@@ -83,6 +83,7 @@ function updateUser(userId, { name, email, password }) {
         return {status: `Could not find User with id ${userId}`}
     }
 
+    return { status: true }
 
 }
 

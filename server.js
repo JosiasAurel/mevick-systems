@@ -9,7 +9,7 @@ const { MONGO_DB_URI__DEV } = require("./serviceConfig");
 mongoose.connect(MONGO_DB_URI__DEV, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // database CRUD handlers
-const { createUser } = require("./database/user");
+const { createUser, updateUser } = require("./database/user");
 
 const app = express();
 
@@ -57,6 +57,8 @@ app.get("/dashboard/{page}", (req, res) => {
 });
 
 /* API Routes */
+
+// create user endpoint
 app.post("/user", (req, res) => {
 
     // extract new user data 
@@ -69,6 +71,23 @@ app.post("/user", (req, res) => {
 
     return result;
 });
+
+// update user endpoint
+app.put("/user/:userId", (req, res) => {
+
+    let userId = req.params.userId; // get user ID from query parameters
+    
+    const { name, email, password } = req.body; // estract all user information passed
+
+    let updateUser__ = updateUser(userId, { name, email, password }); // update user
+
+    if (updateUser__.status === true) {
+        return "Success"
+    } else {
+        return "Failed"
+    }
+}); 
+
 /* End API Routes */
 
 
