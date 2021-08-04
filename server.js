@@ -9,7 +9,7 @@ const { MONGO_DB_URI__DEV } = require("./serviceConfig");
 mongoose.connect(MONGO_DB_URI__DEV, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // database CRUD handlers
-const { createUser, updateUser } = require("./database/user");
+const { createUser, updateUser, deleteUser } = require("./database/user");
 
 const app = express();
 
@@ -87,6 +87,16 @@ app.put("/user/:userId", (req, res) => {
         return "Failed"
     }
 }); 
+
+app.delete("/user/:userId", (req, res) => {
+     
+    let userId = req.params.userId; // get user ID from query parameters
+
+    let deleteUser = deleteUser(userId);
+
+    return deleteUser;
+    
+});
 
 /* End API Routes */
 
