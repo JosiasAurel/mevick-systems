@@ -10,6 +10,7 @@ mongoose.connect(MONGO_DB_URI__DEV, { useUnifiedTopology: true, useNewUrlParser:
 
 // database CRUD handlers
 const { createUser, updateUser, deleteUser } = require("./database/user");
+const { createArticle, updateArticle } = require("./database/article");
 
 const app = express();
 
@@ -69,7 +70,7 @@ app.post("/user", (req, res) => {
         result = createUser(name, email, password, role);
     }
 
-    return result;
+    res.send(result);
 });
 
 // update user endpoint
@@ -82,9 +83,9 @@ app.put("/user/:userId", (req, res) => {
     let updateUser__ = updateUser(userId, { name, email, password }); // update user
 
     if (updateUser__.status === true) {
-        return "Success"
+        res.send("Success");
     } else {
-        return "Failed"
+        res.send("Failed");
     }
 }); 
 
@@ -99,6 +100,16 @@ app.delete("/user/:userId", (req, res) => {
 });
 
 // Routes for articles
+app.post("/articles", (req, res) => {
+
+    const { title, content, readTime } = req.body; // get article data
+
+    let createdArticle = createArticle(title, content, readTime); // the created article
+
+    res.send(createdArticle);
+    
+});
+
 
 /* End API Routes */
 
