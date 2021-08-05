@@ -28,3 +28,5 @@ const typeDefinitions: any = gql`
         updateArticle(id: ID!, title: String, content: String, readTime: Int): Article
     }
 `;
+
+export { typeDefinitions };

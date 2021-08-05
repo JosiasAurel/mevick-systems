@@ -15,4 +15,4 @@ const ArticleSchema = new Schema<IArticle>({
 
 const Article = model("Article", ArticleSchema);
 
-exports { Article };
+export { Article };
