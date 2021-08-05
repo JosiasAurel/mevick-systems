@@ -1,26 +1,24 @@
 {
-  "name": "mevick-site",
+  "name": "mevick-systems",
   "version": "1.0.0",
-  "description": "A simple cool site with EJS and node",
+  "description": "The official repository of the Mevick Systems Project",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "dev": "nodemon --watch . --exec node server.js"
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosiasAurel/mevick-systems.git"
   },
   "keywords": [
-    "site",
-    "webapp"
+    "School",
+    "management",
+    "education"
   ],
-  "author": "Josias Aurel",
+  "author": "Josias Aurel (JosiasWing)",
   "license": "MIT",
-  "dependencies": {
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "mongoose": "^5.13.5",
-    "nodemon": "^2.0.12",
-    "path": "^0.12.7"
+  "bugs": {
+    "url": "https://github.com/JosiasAurel/mevick-systems/issues"
   },
-  "devDependencies": {
-    "jest": "^27.0.6"
-  }
+  "homepage": "https://github.com/JosiasAurel/mevick-systems#readme"
 }
