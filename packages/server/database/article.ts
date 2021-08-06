@@ -5,12 +5,14 @@ interface IArticle extends Document {
     title: string
     content: string
     readTime: number
+    owner: string
 }
 
 const ArticleSchema = new Schema<IArticle>({
     title: String,
     content: String,
-    readTime: Number
+    readTime: Number,
+    owner: String
 });
 
 const Article = model("Article", ArticleSchema);
