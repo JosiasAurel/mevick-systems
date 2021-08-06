@@ -82,6 +82,27 @@ const resolvers = {
             } else {
                 return {status: "Failed"}
             }
+        },
+        deleteArticle: (parent: any, args: any) => {
+
+            // get the id of the article to delete
+            const { id } = args;
+
+            let isError: boolean = false; // error checker
+
+            Article.findByIdAndDelete(id, {}, (error: any, _: any) => {
+                if (error) {
+                    isError = true;
+                    return;
+                }
+
+            });
+
+            if (!isError) {
+                return {status: "Success"}
+            } else {
+                return {status: "Failed"}
+            }
         }
 
     }
