@@ -55,6 +55,40 @@ const resolvers = {
             } else {
                 return {status: "Failed"}
             }
+        },
+        getArticles: async () => {
+
+            // error checker
+            let isError: boolean = false;
+
+            // fetched articles
+            let fetchedArticles: Array<any> = [];
+
+            let unval: any;
+
+            let articles_: any = await Article.find((error: any, articles: any) => {
+                if (error) {
+                    isError = true;
+                }
+
+                fetchedArticles = articles;
+            });
+
+            unval = await articles_;
+
+            if (isError) {
+                return [
+                    {
+                        title: "NO",
+                        content: "NO",
+                        readTime: "NO",
+                        owner: "NO",
+                        id: "NO"
+                    }
+                ];
+            } else {
+                return fetchedArticles;
+            }
         }
     },
 
