@@ -1,5 +1,11 @@
 import express, { Application, Request, Response } from "express";
 
+import { ApolloServer } from "apollo-server-express";
+
+// graphql specifics
+import { resolvers } from "./graphql/resolvers";
+import { typeDefinitions } from "./graphql/typeDefs";
+
 const app: Application = express();
 
 // import models
@@ -53,5 +59,11 @@ app.post("/login", (req: Request, res: Response) => {
         res.json(user_[0]);
     });
 });
+
+// create our apollo server instance
+const server: ApolloServer = new ApolloServer({ typeDefs: typeDefinitions, resolvers: resolvers });
+
+// mout our express server
+server.start().then(() => server.applyMiddleware({app}));
 
 app.listen(4000, () => console.log("Working on port 4000"));
