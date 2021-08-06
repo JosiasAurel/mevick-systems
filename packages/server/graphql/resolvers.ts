@@ -1,5 +1,5 @@
 
-import { User } from "../database/user";
+import { User, Article } from "../database";
 
 const resolvers = {
     Query: {
@@ -56,6 +56,34 @@ const resolvers = {
                 return {status: "Failed"}
             }
         }
+    },
+
+    Mutation: {
+        createArticle: (parent: any, args: any) => {
+            
+            // get the article data from the graphql params
+            const { title, content, readTime, owner } = args;
+
+            // error checker
+            let isError: boolean = false;
+
+            // create the new article
+            let newArticle: any = new Article({title, content, readTime, owner});
+
+            // save the new article
+            newArticle.save((error: any, newArticle__: any) => {
+                if (error) {
+                    isError = true;
+                }
+            });
+
+            if (!isError) {
+                return {status: "Success"}
+            } else {
+                return {status: "Failed"}
+            }
+        }
+
     }
 }
 
