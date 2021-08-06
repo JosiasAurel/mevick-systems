@@ -7,6 +7,6 @@ import { User } from "./user";
 import { MONGO_DB_URI } from "../serviceConfig";
 import { Mongoose } from "mongoose";
 
-mongoose.connect(MONGO_DB_URI);
+mongoose.connect(MONGO_DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 export { User, Article };
