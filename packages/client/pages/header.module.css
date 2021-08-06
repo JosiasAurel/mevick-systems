@@ -1,0 +1,45 @@
+/* body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background-color: red;
+}
+
+.logo{
+    font-size: 20px;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.nav{
+    /* padding: 0 5%; */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: blue; */
+}
+
+.list{
+    display: flex;
+}
+
+
+.name{
+    list-style: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
