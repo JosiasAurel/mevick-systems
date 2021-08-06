@@ -19,13 +19,11 @@ app.post("/signup", (req: Request, res: Response) => {
 
     let isError: boolean = false;
 
-    let newUser: any = User.create({name, email, password, role}, (error: any, user: any) => {
-        if (error) {
+    User.create({name, email, password, role}, (error: any, user: any) => {
+        if (error !== undefined) {
             isError = true;
             return;
         }
-
-        return;
     });
 
     if (!isError) {
