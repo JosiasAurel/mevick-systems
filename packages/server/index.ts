@@ -35,6 +35,8 @@ app.post("/signup", (req: Request, res: Response) => {
     }
 });
 
+
+// this route will fetch the first use that matches the credentials passed or return an error
 app.post("/login", (req: Request, res: Response) => {
 
     // get the credentials
