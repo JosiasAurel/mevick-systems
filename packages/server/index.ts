@@ -35,4 +35,21 @@ app.post("/signup", (req: Request, res: Response) => {
     }
 });
 
+app.post("/login", (req: Request, res: Response) => {
+
+    // get the credentials
+    const { email, password } = req.body;
+
+    let fetchedUser: any;
+
+    User.find({email, password}, (error: any, user_: Array<any>) => {
+        if (error) {
+            res.json({status: "Failed"});
+            return;
+        }
+
+        res.json(user_[0]);
+    });
+});
+
 app.listen(4000, () => console.log("Working on port 4000"));
