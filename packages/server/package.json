@@ -4,7 +4,9 @@
   "description": "The official server for mevick systems",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "dev": "ts-node index.ts"
   },
   "keywords": [
     "MevickSystems",
