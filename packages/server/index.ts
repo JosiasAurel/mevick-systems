@@ -5,6 +5,9 @@ const app: Application = express();
 // import models
 import { User } from "./database";
 
+// accept JSON requests
+app.use(express.json());
+
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello World from basic server");
 });
