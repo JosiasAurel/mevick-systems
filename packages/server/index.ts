@@ -14,6 +14,8 @@ import { User } from "./database";
 // accept JSON requests
 app.use(express.json());
 
+const port: number = 4000;
+
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello World from basic server");
 });
@@ -66,4 +68,4 @@ const server: ApolloServer = new ApolloServer({ typeDefs: typeDefinitions, resol
 // mout our express server
 server.start().then(() => server.applyMiddleware({app}));
 
-app.listen(4000, () => console.log("[Listening] :4000 "));
+app.listen(port, () => console.log(`[Listening] :${port}`));
