@@ -83,6 +83,50 @@ const resolvers = {
                 return {status: "Failed"}
             }
         },
+
+        updateArticle: (parent: any, args: any) => {
+
+            // get the id of the article 
+            const { id } = args;
+
+            let isError: boolean = false;
+            let isError_: boolean = false;
+
+            let unval: any; // dirty trick 1
+
+            let oldArticleData: any;
+
+            Article.findById(id, (error: any, article_: any) => {
+                if (error) {
+                    isError = true;
+                }
+
+                // take new article data
+                oldArticleData = article_;
+                // console.log(article_);
+
+                // update article under here
+                Article.findByIdAndUpdate(id, {
+                    title: args.title ? args.title : article_.title,
+                    content: args.content ? args.content : article_.content,
+                    readTime: args.readTime ? args.readTime : article_.readTime,
+                }, (error: any, updatedArticle__: any) => {
+                    if (error) {
+                        isError_ = true;
+                    }
+
+                })
+            });
+
+            if (!isError) {
+                if (!isError_) {
+                    return {status: "Success"}
+                }
+            } else {
+                return {status: "Failed"}
+            }
+        },
+
         deleteArticle: (parent: any, args: any) => {
 
             // get the id of the article to delete
