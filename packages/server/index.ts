@@ -19,7 +19,9 @@ app.post("/signup", (req: Request, res: Response) => {
 
     let isError: boolean = false;
 
-    User.create({name, email, password, role}, (error: any, user: any) => {
+    let newUser: any = new User({name, email, password, role});
+
+    newUser.save((error: any, user: any) => {
         if (error !== undefined) {
             isError = true;
             return;
@@ -27,9 +29,9 @@ app.post("/signup", (req: Request, res: Response) => {
     });
 
     if (!isError) {
-        return {status: "Success"}
+        res.json({status: "Success"});
     } else {
-        return {status: "Failed"}
+        res.json({status: "Failed"});
     }
 });
 
