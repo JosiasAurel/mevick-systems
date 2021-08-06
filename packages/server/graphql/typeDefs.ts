@@ -12,6 +12,7 @@ const typeDefinitions: any = gql`
         title: String!
         content: String!
         readTime: Int!
+        owner: User
         id: ID!
     }
 
@@ -22,8 +23,12 @@ const typeDefinitions: any = gql`
         getArticle(id: ID): Article
     }
 
+    type MSresponse {
+        status: String
+    }
+
     type Mutation {
-        createArticle(title: String!, content: String!, readTime: Int!): Article
+        createArticle(title: String!, content: String!, readTime: Int!, owner: String!): MSresponse
         deleteArticle(id: ID!): String
         updateArticle(id: ID!, title: String, content: String, readTime: Int): Article
     }
