@@ -66,4 +66,4 @@ const server: ApolloServer = new ApolloServer({ typeDefs: typeDefinitions, resol
 // mout our express server
 server.start().then(() => server.applyMiddleware({app}));
 
-app.listen(4000, () => console.log("Working on port 4000"));
+app.listen(4000, () => console.log("[Listening] :4000 "));
