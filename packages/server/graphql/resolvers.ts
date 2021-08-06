@@ -89,6 +89,40 @@ const resolvers = {
             } else {
                 return fetchedArticles;
             }
+        },
+        getArticle: async (parent: any, args: any) => {
+
+            // get the article id
+            const { id } = args;
+
+            // error checker
+            let isError: boolean = false;
+
+            let fetchedArticle: any; 
+
+            let unval: any; // dirty trick that work...
+
+            let article__: any = await Article.findById(id, (error: any, article_: any) => {
+                if (error) {
+                    isError = true;
+                }
+
+                fetchedArticle = article_;
+            });
+
+            unval = await article__;
+
+            if (!isError) {
+                return fetchedArticle;
+            } else {
+                return {
+                    title: "NO",
+                    content: "NO",
+                    readTime: "NO",
+                    owner: "NO",
+                    id: "NO"
+                }
+            }
         }
     },
 
