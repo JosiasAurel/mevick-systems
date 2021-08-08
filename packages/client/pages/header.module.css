@@ -1,8 +1,3 @@
-/* body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 
 
 .header{
@@ -10,12 +5,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    background-color: red;
+    height: 80px;
+    background: transparent;
 }
 
 .logo{
     font-size: 20px;
     font-family: monospace;
+    font-weight: bold;
+    color: whitesmoke;
     cursor: pointer;
 }
 
@@ -38,8 +36,110 @@
 }
 
 
-.name{
+.name, .name1{
     list-style: none;
     margin-right: 20px;
+    color: whitesmoke;
+    font-weight: bold;
     cursor: pointer;
+}
+
+.name1{
+    padding: 1px 40px;
+    border-radius: 20px;
+    transition: .5s ease-in-out;
+    border: 3px solid #f44;
+    
+}
+.name1:hover{
+    background: #f44;
+    /* transition:  ease-in-out; */
+    border: none;
+    color: whitesmoke;
+}
+.container{
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/assembly.jpg);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    padding: 0;
+}
+
+
+.h1{
+    display: flex;
+    color: whitesmoke;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.para{
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.button{
+    margin-top: 15px;
+    color: whitesmoke;
+    border: 3px solid #f44;
+    padding: 10px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .5s ease-in-out;
+}
+
+.button:hover{
+    background: #f44;
+    border: none;
+    /* font-weight: bold; */
+}
+
+
+.registration{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/assembly.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.identification{
+    display: flex;
+}
+
+.zed{
+    margin: 0 20px;
+    /* background: blue; */
+}
+
+.who{
+    width: 80%;
+    height: 40%;
+    background: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 10px 10px -10px 10px rgba(0,0,0,0.9);
+}
+
+
+@media(max-width: 500px) {
+    .who{
+        background: none;
+        width: 100%;
+    }
 }
