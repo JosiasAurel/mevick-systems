@@ -2,9 +2,9 @@ import React from 'react'
 import '../styles/globals.css'
 
 
-function MyApp({ Components, pageProps}) {
+function MyApp({ Component, pageProps}) {
     return (
-        <Components{...pageProps} />
+        <Component{...pageProps} />
     )
 }
 
