@@ -47,14 +47,15 @@
 .name1{
     padding: 1px 40px;
     border-radius: 20px;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
     border: 3px solid #f44;
     
 }
+
 .name1:hover{
     background: #f44;
     /* transition:  ease-in-out; */
-    border: none;
+    border: 3px solid #f44;
     color: whitesmoke;
 }
 .container{
@@ -95,12 +96,12 @@
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
 }
 
 .button:hover{
     background: #f44;
-    border: none;
+    border: 3px solid #f44;
     /* font-weight: bold; */
 }
 
