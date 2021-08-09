@@ -47,7 +47,7 @@
 .name1{
     padding: 1px 40px;
     border-radius: 20px;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
     border: 3px solid #f44;
     
 }
@@ -55,6 +55,7 @@
     background: #f44;
     /* transition:  ease-in-out; */
     border: none;
+    border: 2px solid #f44;
     color: whitesmoke;
 }
 .container{
@@ -137,9 +138,115 @@
 }
 
 
-@media(max-width: 500px) {
+@media(max-width: 700px) {
     .who{
         background: none;
         width: 100%;
     }
+    .h1{
+        text-align: center;
+    }
+    .navbar{
+        display: none;
+    }
+    .whatWeOfferWrapper,
+    .ourNursery{
+        flex-direction: column;
+        /* margin-bottom: 20px; */
+    }
+    .secondary,
+    .primary,
+    .nursery,
+    .nurseryOne,
+    .nurseryTwo,
+    .nurseryThree{
+        margin-bottom: 20px;
+    }
+}
+
+
+.whatWeOffer,
+.ourCampus{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 80px; */
+    margin: 80px auto;
+    /* background: red; */
+}
+
+.whatWeOfferWrapper,
+.ourNursery{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.secondary,
+.primary,
+.nursery,
+.nurseryThree,
+.nurseryTwo,
+.nurseryOne{
+    background: whitesmoke;
+    flex-basis: 32%;
+    /* height: px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    /* align-items: flex-start; */
+  }
+
+  .whatWeOfferWrapperTitle,
+  .ourCampusTitle{
+      text-align: center;
+      font-weight: 900;
+  }
+
+  .nurseryThree{
+    background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/n.jpg);
+    cursor: pointer;
+      height: 30vh;
+      background-position: center;
+      background-size: cover;
+  }
+
+.nurseryTwo{
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/nursery2.jpg);
+    background-position: center;
+    height: 30vh;
+    background-size: cover;
+}
+
+.nurseryOne{
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/nursery1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+}
+
+.overlay{
+    color: whitesmoke;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+.overlay > *{
+    transform: translateY(10px);
+    transition: transform .5s;
+}
+.overlay > *:hover{
+    transform: translateY(0);
+}
+
+.overlay:hover{
+    opacity: 1;
 }
