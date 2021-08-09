@@ -1,0 +1,26 @@
+{
+  "name": "mevick-systems-backend",
+  "version": "1.0.0",
+  "description": "The official client for the mevick systems project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Education",
+    "client"
+  ],
+  "author": "Josias Aurel (JosiasWing)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.1",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7"
+  }
+}
