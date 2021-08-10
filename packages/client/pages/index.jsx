@@ -106,9 +106,9 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Primary</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    <div className={styles.nurseryOne}>
+                    <div className={styles.primaryOne}>
                          <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery One</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary One</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -116,9 +116,9 @@ const IndexPage = () => {
                          </p>
                         </div>
                     </div>
-                    <div className={styles.nurseryTwo}>
+                    <div className={styles.primaryTwo}>
                          <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Two</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary Three</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -126,9 +126,9 @@ const IndexPage = () => {
                          </p>
                         </div>
                     </div>
-                    <div className={styles.nurseryThree}>
+                    <div className={styles.primaryThree}>
                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Three</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary Six</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -138,12 +138,12 @@ const IndexPage = () => {
                     </div>
                 </div>
                 <div className="header">
-                   <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Primary</h1>
+                   <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Secondary</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    <div className={styles.nurseryOne}>
+                    <div className={styles.secondaryOne}>
                          <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery One</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Secondary/Commercial</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -151,9 +151,9 @@ const IndexPage = () => {
                          </p>
                         </div>
                     </div>
-                    <div className={styles.nurseryTwo}>
+                    <div className={styles.secondaryTwo}>
                          <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Two</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Secondary-second-cycle</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -161,9 +161,9 @@ const IndexPage = () => {
                          </p>
                         </div>
                     </div>
-                    <div className={styles.nurseryThree}>
+                    <div className={styles.secondaryThree}>
                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Three</h1>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Commercial-second-Cycle</h1>
                           <p>Lorem, ipsum dolor sit amet consectetur 
                           adipisicing elit. Nihil ut sit eos
                           impedit est architecto temporibus 
@@ -173,6 +173,89 @@ const IndexPage = () => {
                     </div>
                 </div>
             </div>
+            <div className="header">
+                <h1 className={styles.whatWeOfferWrapperTitle}>Our Facilities</h1>
+            </div>
+            <div className="facilities">
+                <div className={styles.ourNursery}>
+                    <div className={styles.libary}>
+                         <div className={styles.overlay}>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Libary</h1>
+                          <p>Lorem, ipsum dolor sit amet consectetur 
+                          adipisicing elit. Nihil ut sit eos
+                          impedit est architecto temporibus 
+                          eligendi, repellendus cum quod!
+                         </p>
+                        </div>
+                    </div>
+                    <div className={styles.sport}>
+                         <div className={styles.overlay}>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Sport field</h1>
+                          <p>Lorem, ipsum dolor sit amet consectetur 
+                          adipisicing elit. Nihil ut sit eos
+                          impedit est architecto temporibus 
+                          eligendi, repellendus cum quod!
+                         </p>
+                        </div>
+                    </div>
+                    <div className={styles.food}>
+                        <div className={styles.overlay}>
+                          <h1 className={styles.whatWeOfferWrapperTitle}>Cantine</h1>
+                          <p>Lorem, ipsum dolor sit amet consectetur 
+                          adipisicing elit. Nihil ut sit eos
+                          impedit est architecto temporibus 
+                          eligendi, repellendus cum quod!
+                         </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="testimonials">
+                  <div className={styles.whatWeOffer}>
+                <div className="header">
+                   <h1 className={styles.whatWeOfferWrapperTitle}>Testimonials</h1>
+                </div>
+                <div className={styles.whatWeOfferWrapper}>
+                   <div className={styles.nursery}>
+                     <div className={styles.testi}>
+                         <div className={styles.prof}></div>
+                         <p>Lorem, ipsum dolor sit amet consectetur 
+                            adipisicing elit. Nihil ut sit eos
+                            impedit est architecto temporibus 
+                            eligendi, repellendus cum quod!
+                         </p>
+                     </div>
+                  </div>
+                   <div className={styles.nursery}>
+                     <div className={styles.testi}>
+                         <div className={styles.prof}></div>
+                         <p>Lorem, ipsum dolor sit amet consectetur 
+                            adipisicing elit. Nihil ut sit eos
+                            impedit est architecto temporibus 
+                            eligendi, repellendus cum quod!
+                         </p>
+                     </div>
+                  </div>
+                   <div className={styles.nursery}>
+                     <div className={styles.testi}>
+                         <div className={styles.prof}></div>
+                         <p>Lorem, ipsum dolor sit amet consectetur 
+                            adipisicing elit. Nihil ut sit eos
+                            impedit est architecto temporibus 
+                            eligendi, repellendus cum quod!
+                         </p>
+                     </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+
+            <footer className={styles.footer}>
+                <p>Enroll our varius online cousrse on the genaral Education and also the commercial education</p>
+                 <Link href="/Components/Register">
+                    <li className={styles.contact}>Contact Us</li>    
+                 </Link>
+            </footer>
         </div>
     )
 }
