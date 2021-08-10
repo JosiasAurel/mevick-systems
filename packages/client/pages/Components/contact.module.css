@@ -1,0 +1,114 @@
+
+.container{
+    background: #f44;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    flex-direction: column;
+    object-fit: cover;
+    text-align: center;
+    color: whitesmoke;
+    width: 60%;
+    border-bottom-right-radius: 1000px;
+
+}
+
+.zenith{
+    display: flex;
+}
+
+.components{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 40%;
+    /* background: blue; */
+}
+
+
+.contact{
+    padding: 1px 40px;
+    border-radius: 20px;
+    transition: .5s ease-in-out;
+    border: 3px solid whitesmoke;
+    list-style: none;
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    color: whitesmoke;
+    cursor: pointer;
+    
+}
+
+.firstName,
+.lastname{
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    outline: none;
+    width: 350px;
+    color: whitesmoke;
+    background: #f44;
+
+} 
+
+.message{
+    background: #f44;
+    width: 350px;
+    resize: none;
+    color: whitesmoke;
+    outline: none;
+    height: 200px;
+    border-radius: 10px;
+    padding: 10px 15px;
+
+}
+
+.contact:hover{
+    background: whitesmoke;
+    color: #f44;
+}
+
+.firstName::placeholder{
+    color: whitesmoke;
+}
+.lastname::placeholder{
+    color: whitesmoke;
+}
+
+.message::placeholder{
+    color: whitesmoke;
+}
+
+.send{
+    display: flex;
+    background: #f44;
+    list-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 40px;
+    color: whitesmoke;
+}
+
+
+.send:hover{
+    background: rgb(223, 101, 101);
+}
+
+
+@media(max-width:700px){
+    .zenith{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        width: 100%;
+        border-bottom-left-radius: 1000px;
+        height: 40Vh;
+    }
+}

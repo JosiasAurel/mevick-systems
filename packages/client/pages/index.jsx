@@ -251,8 +251,8 @@ const IndexPage = () => {
             </div>
 
             <footer className={styles.footer}>
-                <p>Enroll our varius online cousrse on the genaral Education and also the commercial education</p>
-                 <Link href="/Components/Register">
+                <p  className={styles.enroll}>Enroll our varius online cousrse on the genaral Education and also the commercial education</p>
+                 <Link href="/Components/ContactForm">
                     <li className={styles.contact}>Contact Us</li>    
                  </Link>
             </footer>

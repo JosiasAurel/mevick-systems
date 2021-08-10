@@ -161,6 +161,18 @@
     .nurseryThree{
         margin-bottom: 20px;
     }
+    .prof{
+        width: 100px;
+    }
+    .footer{
+        padding: 80px;
+        object-fit: contain;
+    }
+    .enroll{
+        font-size: 12px;
+        text-align: center;
+        padding: 20px;
+    }
 }
 
 
@@ -333,7 +345,8 @@
     color: whitesmoke;
     width: 100%;
     background: #f44;
-    height: 100px;
+    /* height: 100px; */
+    padding: 20px;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
 }
