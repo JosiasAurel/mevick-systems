@@ -26,3 +26,25 @@ async function signUp(name, email, password, userType) {
     return signUpData;
 }
 
+async function logIn(email, password) {
+
+    // request Headers
+    const requestHeader = {
+        "Content-Type": "application/json"
+    };
+
+    const logInBody = {
+        email,
+        password
+    };
+
+    const logInResult = await fetch(`${SERVER_URI}/login`, {
+        mode: "POST",
+        headers: requestHeader,
+        body: JSON.stringify(logInBody)
+    });
+
+    const logInData = await logInResult.json();
+
+    return logInData;
+}
