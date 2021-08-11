@@ -47,15 +47,15 @@
 .name1{
     padding: 1px 40px;
     border-radius: 20px;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
     border: 3px solid #f44;
     
 }
+
 .name1:hover{
-    background: #f44;
-    /* transition:  ease-in-out; */
-    border: none;
-    color: whitesmoke;
+    
+    /* background-color: #f44; */
+    
 }
 .container{
     background-position: center;
@@ -95,12 +95,12 @@
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
 }
 
 .button:hover{
     background: #f44;
-    border: none;
+    border: 3px solid #f44;
     /* font-weight: bold; */
 }
 
@@ -137,9 +137,232 @@
 }
 
 
-@media(max-width: 500px) {
+@media(max-width: 700px) {
     .who{
         background: none;
         width: 100%;
     }
+    .h1{
+        text-align: center;
+    }
+    .navbar{
+        display: none;
+    }
+    .whatWeOfferWrapper,
+    .ourNursery{
+        flex-direction: column;
+        /* margin-bottom: 20px; */
+    }
+    .secondary,
+    .primary,
+    .nursery,
+    .nurseryOne,
+    .nurseryTwo,
+    .nurseryThree{
+        margin-bottom: 20px;
+    }
+    .prof{
+        width: 100px;
+    }
+    .footer{
+        padding: 80px;
+        object-fit: contain;
+    }
+    .enroll{
+        font-size: 12px;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+
+.whatWeOffer,
+.ourCampus{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 80px; */
+    margin: 80px auto;
+    /* background: red; */
+}
+
+.whatWeOfferWrapper,
+.ourNursery,
+.facilities{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.secondary,
+.primary,
+.nursery,
+.nurseryThree,
+.nurseryTwo,
+.nurseryOne,
+.primaryOne,
+.primaryTwo,
+.primaryThree,
+.secondaryOne,
+.secondaryTwo,
+.secondaryThree,
+.sport,
+.libary,
+.food{
+    background: whitesmoke;
+    flex-basis: 32%;
+    /* height: px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    /* align-items: flex-start; */
+  }
+
+  .whatWeOfferWrapperTitle,
+  .ourCampusTitle{
+      text-align: center;
+      font-weight: 900;
+  }
+
+  .nurseryThree,
+  .primaryThree,
+  .secondaryThree{
+    background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/n.jpg);
+    cursor: pointer;
+      height: 30vh;
+      background-position: center;
+      background-size: cover;
+  }
+
+.nurseryTwo,
+.primaryTwo,
+.secondaryTwo{
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/nursery2.jpg);
+    background-position: center;
+    height: 30vh;
+    background-size: cover;
+}
+
+.nurseryOne,
+.secondaryOne,
+.primaryOne{
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../public/images/nursery1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+}
+
+
+.overlay{
+    color: whitesmoke;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+.overlay > *{
+    transform: translateY(10px);
+    transition: transform .5s;
+}
+.overlay > *:hover{
+    transform: translateY(0);
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+.primaryOne{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/primary2.jpg);
+}
+
+.primaryTwo{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/primary1.jpg);
+}
+
+.primaryThree{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/primary.jpg);
+}
+.secondaryOne{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/s.jpg);
+}
+
+.secondaryTwo{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/secon1.jpg);
+}
+
+.secondaryThree{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/secon2.jpg);
+}
+.sport{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/sportd.jpg);
+     background-position: center;
+     height: 40vh;
+     background-size: cover;
+}
+.libary{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/lib.jpeg);
+     background-position: center;
+     background-size: cover;
+     height: 40vh;
+}
+.food{
+     background-image: linear-gradient(rgba(23, 29, 53, 0.7),rgba(4,9,30,0.7)),url(../public/images/cantine.jpg);
+     background-position: center;
+     height: 40vh;
+     background-size: cover;
+}
+
+
+.testi{
+    display: flex;
+}
+
+.prof{
+    height: 40px;
+    width: 200px;
+    margin-right: 20px;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    /* background: red; */
+    background-image: url(../public/images/mel.jpg);
+    border-radius: 50%;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    width: 100%;
+    background: #f44;
+    /* height: 100px; */
+    padding: 20px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.contact{
+    padding: 1px 40px;
+    border-radius: 20px;
+    transition: .5s ease-in-out;
+    border: 3px solid whitesmoke;
+    list-style: none;
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+
+.contact:hover{
+    background: whitesmoke;
+    color: #f44;
 }
