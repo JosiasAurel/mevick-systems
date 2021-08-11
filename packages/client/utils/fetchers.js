@@ -143,9 +143,21 @@ async function fetchUser(authToken, userId) {
 
 async function fetchArticles(authToken) {
 
-    const getArticlesQuery = "{ getArticles() { title, content, readTime, owner } }";
+    const getArticlesQuery = "{ getArticles() { title, content, readTime, owner { name } } }";
 
     const getArticlesQueryResult = await sendGraphQLRequest(authToken, "query", getArticlesQuery);
 
     return getArticlesQueryResult?.data !== null ? getArticlesQueryResult?.data : [];
+}
+
+async function fetchArticle(authToken, articleId) {
+    const getArticleQueryVariablesPlaceholder = "($id: String!)";
+    const getArticleQueryVariables = {id: userId};
+    const getArticleQuery = "getArticle(id: $id) { title, content, readTime, owner { name } }";
+
+    const getArticleQuersResult = await sendGraphQLRequest(authToken, "queryWithVars", getArticleQuery, getArticleQueryVariablesPlaceholder, getArticleQueryVariables);
+
+    const getArticleQueryData = await getArticleQuersResult.json();
+
+    return getArticleQueryData?.data;
 }
