@@ -172,3 +172,13 @@ async function createArticle(authToken, title, content, readTime, owner) {
 
     return createArticleMutationResult;
 }
+
+async function deleteArticle(authToken, articleId) {
+    const deleteArticleMutationVariablesPlaceholder = "($id: ID!)";
+    const deleteArticleVariables = {id: articleId};
+    const deleteArticleMutation = "deleteArticle(id: $id)";
+
+    const deleteArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", deleteArticleMutation, deleteArticleMutationVariablesPlaceholder, deleteArticleVariables);
+
+    return deleteArticleMutationResult;
+}
