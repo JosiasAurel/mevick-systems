@@ -134,5 +134,9 @@ async function fetchUser(authToken, userId) {
     const getUserQueryVariables = {id: userId};
     const getUserQuery = "getUser(id: $id) { name, email, id }";
 
+    const getUserQuersResult = await sendGraphQLRequest(authToken, "queryWithVars", getUserQuery, getUserQueryVariablesPlaceholder, getUserQueryVariables);
 
+    const getUserQueryData = await getUserQuersResult.json();
+
+    return getUserQueryData?.data;
 }
