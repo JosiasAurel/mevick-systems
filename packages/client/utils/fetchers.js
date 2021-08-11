@@ -100,3 +100,11 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
 }
 
 /* © Josias Aurel --  END */
+
+async function fetchUsers(authToken) {
+    const getUsersQuery = "{ getUsers() { name, email, id } }";
+
+    const getUsersQueryresult = await sendGraphQLRequest(authToken, "query", getUsersQuery);
+
+    return getUsersQueryresult?.data !== null ? getUsersQueryresult?.data : [];
+}
