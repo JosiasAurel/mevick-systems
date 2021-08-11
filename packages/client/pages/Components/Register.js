@@ -10,11 +10,9 @@ const Register = () => {
                  <div className={styles.identification}>
                  <Link href="">
                     <button className={styles.button}>Student</button>
-                    {/* <button>Teacher</button> */}
                  </Link>
                  <div className={styles.zed}></div>
                  <Link href="">
-                    {/* <button>Student</button> */}
                     <button className={styles.button}>Teacher</button>
                  </Link>
                  </div>
