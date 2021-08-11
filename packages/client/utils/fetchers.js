@@ -65,8 +65,14 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
     };
 
     const graphqlActionQuery = {
+        query: `query ${variablesPlaceholder} ${query}`,
+        variables: JSON.stringify(variables)
+    };
+
+    const graphQLActionQueryWithVars = {
         query: `query ${query}`
     };
+
     const graphqlActionMutation = {
         query: `mutation ${variablesPlaceholder} { ${query} }`,
         variables: JSON.stringify(variables)
@@ -82,11 +88,24 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
         const queryData = await queryResponse.json();
 
         return queryData;
+
     } else if (action === "mutation") {
         const queryResponse = await fetch(`${SERVER_URI}/graphql`, {
             method: "POST",
             headers: requestHeaders,
             body: JSON.stringify(graphqlActionMutation)
+        });
+
+        const queryData = await queryResponse.json();
+
+        return queryData;
+
+    } else if (action === "queryWithVars") {
+
+        const queryResponse = await fetch(`${SERVER_URI}/graphql`, {
+            method: "POST",
+            headers: requestHeaders,
+            body: JSON.stringify(graphQLActionQueryWithVars)
         });
 
         const queryData = await queryResponse.json();
@@ -107,4 +126,13 @@ async function fetchUsers(authToken) {
     const getUsersQueryresult = await sendGraphQLRequest(authToken, "query", getUsersQuery);
 
     return getUsersQueryresult?.data !== null ? getUsersQueryresult?.data : [];
+}
+
+async function fetchUser(authToken, userId) {
+
+    const getUserQueryVariablesPlaceholder = "($id: String!)";
+    const getUserQueryVariables = {id: userId};
+    const getUserQuery = "getUser(id: $id) { name, email, id }";
+
+
 }
