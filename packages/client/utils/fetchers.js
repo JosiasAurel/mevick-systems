@@ -176,9 +176,21 @@ async function createArticle(authToken, title, content, readTime, owner) {
 async function deleteArticle(authToken, articleId) {
     const deleteArticleMutationVariablesPlaceholder = "($id: ID!)";
     const deleteArticleVariables = {id: articleId};
-    const deleteArticleMutation = "deleteArticle(id: $id)";
+    const deleteArticleMutation = "deleteArticle(id: $id) {status}";
 
     const deleteArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", deleteArticleMutation, deleteArticleMutationVariablesPlaceholder, deleteArticleVariables);
 
     return deleteArticleMutationResult;
 }
+
+async function updateArticle(authToken, title, content, readTime) {
+    const updateArticleMutationVariablesPlaceholder = "($title: String, $content: String, readTime: Int)";
+    const updateArticleVariables = {title, content, readTime};
+    const updateArticleMutation = "updateArticle(title: $title, content: $content, readTime: $readTime) { status }";
+
+    const updateArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", updateArticleMutation, updateArticleMutationVariablesPlaceholder, updateArticleVariables);
+
+    return updateArticleMutationResult;
+}
+
+export { fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };
