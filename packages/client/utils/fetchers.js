@@ -120,6 +120,7 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
 
 /* © Josias Aurel --  END */
 
+/* GraphQL Query Handlers */
 async function fetchUsers(authToken) {
     const getUsersQuery = "{ getUsers() { name, email, id } }";
 
@@ -136,9 +137,7 @@ async function fetchUser(authToken, userId) {
 
     const getUserQuersResult = await sendGraphQLRequest(authToken, "queryWithVars", getUserQuery, getUserQueryVariablesPlaceholder, getUserQueryVariables);
 
-    const getUserQueryData = await getUserQuersResult.json();
-
-    return getUserQueryData?.data;
+    return getUserQuersResult?.data;
 }
 
 async function fetchArticles(authToken) {
@@ -157,7 +156,19 @@ async function fetchArticle(authToken, articleId) {
 
     const getArticleQuersResult = await sendGraphQLRequest(authToken, "queryWithVars", getArticleQuery, getArticleQueryVariablesPlaceholder, getArticleQueryVariables);
 
-    const getArticleQueryData = await getArticleQuersResult.json();
+    return getArticleQuersResult?.data;
+}
 
-    return getArticleQueryData?.data;
+/* GraphQL query Handlers -- END */
+
+/* GraphQL mutation Handlers */
+async function createArticle(authToken, title, content, readTime, owner) {
+
+    const createArticleMutationVariablesPlaceholder = "($title: String!, $content: String!, $readTime: Int!, $owner: String!)";
+    const createArticleMutationVariables = {title, content, readTime};
+    const createArticleMutation = "createArticle(title: $title, content: $content, readTime: $readTime, owner: $owner) { status }";
+
+    const createArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", createArticleMutation, createArticleMutationVariablesPlaceholder, createArticleMutationVariables);
+
+    return createArticleMutationResult;
 }
