@@ -48,3 +48,55 @@ async function logIn(email, password) {
 
     return logInData;
 }
+
+/* The code below is proprietary to N. D. Josias Aurel */
+/* The function below is copied from one of my projects - Cropboard */
+/* If you ever want to reuse this function in your project, please let me know */
+/* Contact me a hey@josiasw.dev or DM me on Twitter, Handle : @JosiasWing */
+
+// function to send GraphQL requests
+// query has to be JSON stringified if JSON object
+// action can either be query or mutation
+async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder, variables) {
+    // request headers for GraphQL request
+    const requestHeaders = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`
+    };
+
+    const graphqlActionQuery = {
+        query: `query ${query}`
+    };
+    const graphqlActionMutation = {
+        query: `mutation ${variablesPlaceholder} { ${query} }`,
+        variables: JSON.stringify(variables)
+    };
+
+    if (action === "query") {
+        const queryResponse = await fetch(`${SERVER_URI}/graphql`, {
+            method: "POST",
+            headers: requestHeaders,
+            body: JSON.stringify(graphqlActionQuery)
+        });
+
+        const queryData = await queryResponse.json();
+
+        return queryData;
+    } else if (action === "mutation") {
+        const queryResponse = await fetch(`${SERVER_URI}/graphql`, {
+            method: "POST",
+            headers: requestHeaders,
+            body: JSON.stringify(graphqlActionMutation)
+        });
+
+        const queryData = await queryResponse.json();
+
+        return queryData;
+    } else {
+        return Error("UnknownAction");
+    }
+
+    
+}
+
+/* © Josias Aurel --  END */
