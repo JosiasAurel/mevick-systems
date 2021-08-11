@@ -8,10 +8,11 @@ const SECRET_KEY: string | undefined = process.env.SECRET_KEY;
 interface userData {
     email: string
     id: string
+    role: string
 }
 
-function createToken({email, id}: userData): string {
-    let token: string = jwt.sign({email: email, id: id}, SECRET_KEY as string, { expiresIn: "30d", issuer: "mevicksystems" });
+function createToken({email, id, role}: userData): string {
+    let token: string = jwt.sign({email: email, id: id, role: role}, SECRET_KEY as string, { expiresIn: "30d", issuer: "mevicksystems" });
     return token;
 }
 
