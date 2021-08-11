@@ -140,3 +140,12 @@ async function fetchUser(authToken, userId) {
 
     return getUserQueryData?.data;
 }
+
+async function fetchArticles(authToken) {
+
+    const getArticlesQuery = "{ getArticles() { title, content, readTime, owner } }";
+
+    const getArticlesQueryResult = await sendGraphQLRequest(authToken, "query", getArticlesQuery);
+
+    return getArticlesQueryResult?.data !== null ? getArticlesQueryResult?.data : [];
+}
