@@ -28,7 +28,7 @@ const IndexPage = () => {
             <div className={styles.content}>
                <h1 className={styles.h1}>Mevick Bilingual Grammar School</h1>
                <p className={styles.para}>Work-Knowledge-Progress</p>
-               <Link href="/Components/Register">
+               <Link href="/Register">
                    <button className={styles.button}>Register</button>
                </Link>
             </div>
