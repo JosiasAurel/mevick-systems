@@ -221,9 +221,13 @@
   font-weight: 900;
 }
 
-.nurseryThree,
-.primaryThree,
-.secondaryThree {
+.sectionCard {
+  background-position: center;
+  background-size: cover;
+  height: 30vh;
+}
+
+.nurseryThree {
   background-image: linear-gradient(rgba(23, 29, 53, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/n.jpg);
   cursor: pointer;
@@ -232,9 +236,7 @@
   background-size: cover;
 }
 
-.nurseryTwo,
-.primaryTwo,
-.secondaryTwo {
+.nurseryTwo {
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/nursery2.jpg);
   background-position: center;
@@ -242,32 +244,12 @@
   background-size: cover;
 }
 
-.nurseryOne,
-.secondaryOne,
-.primaryOne {
+.nurseryOne {
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/nursery1.jpg);
   background-position: center;
   background-size: cover;
   height: 30vh;
-}
-
-.overlay {
-  color: whitesmoke;
-  opacity: 0;
-  transition: 0.5s ease-in-out;
-}
-
-.overlay > * {
-  transform: translateY(10px);
-  transition: transform 0.5s;
-}
-.overlay > *:hover {
-  transform: translateY(0);
-}
-
-.overlay:hover {
-  opacity: 1;
 }
 
 .primaryOne {
@@ -298,6 +280,25 @@
   background-image: linear-gradient(rgba(23, 29, 53, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/secon2.jpg);
 }
+
+.overlay {
+  color: whitesmoke;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.overlay > * {
+  transform: translateY(10px);
+  transition: transform 0.5s;
+}
+.overlay > *:hover {
+  transform: translateY(0);
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
 .sport {
   background-image: linear-gradient(rgba(23, 29, 53, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/sportd.jpg);

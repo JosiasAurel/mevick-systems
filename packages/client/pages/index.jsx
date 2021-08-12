@@ -4,22 +4,10 @@ import styles from  '../styles/header.module.css'
 
 // import custom components
 import OfferCard from "../components/offerCard";
+import SectionCard from "../components/SectionCard";
 
-// dummy data
-const offersInfo = [
-    {
-        title: "Nursery",
-        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
-    },
-    {
-        title: "Primary",
-        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
-    },
-    {
-        title: "Secondary/Commercial",
-        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
-    },
-];
+// import data
+import { offersInfo, nursery, primary, secondary } from "../data";
 
 const IndexPage = () => {
     return (
@@ -57,6 +45,7 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>What we offer</h1>
                 </div>
                 <div className={styles.whatWeOfferWrapper}>
+
                    { offersInfo.map(({title, content}) => {
                        return (
                            <OfferCard 
@@ -66,6 +55,7 @@ const IndexPage = () => {
                            />
                        )
                    }) }
+
                 </div>
             </div>
 
@@ -74,71 +64,27 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Nursery</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    <div className={styles.nurseryOne}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery One</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.nurseryTwo}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Two</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.nurseryThree}>
-                        <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Nursery Three</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
+                    { nursery.map(({title, content}) => {
+                        return (
+                            <SectionCard 
+                            title={title}
+                            content={content}
+                            />
+                        )
+                    }) }
                 </div>
                 <div className="header">
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Primary</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    <div className={styles.primaryOne}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary One</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.primaryTwo}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary Three</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.primaryThree}>
-                        <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Primary Six</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
+                    { nursery.map(({title, content}) => {
+                        return (
+                            <SectionCard 
+                            title={title}
+                            content={content}
+                            />
+                        )
+                    }) }
                 </div>
                 <div className="header">
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Secondary</h1>
