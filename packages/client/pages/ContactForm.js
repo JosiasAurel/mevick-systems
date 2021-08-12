@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './contact.module.css'
+import styles from '../styles/contact.module.css'
 
 const ContactForm = () => {
     return (

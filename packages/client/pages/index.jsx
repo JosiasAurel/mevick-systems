@@ -1,7 +1,6 @@
 import React from "react";
 import Link from 'next/link'
-import Logo from '../public/images/logo.png'
-import styles from  './header.module.css'
+import styles from  '../styles/header.module.css';
 
 const IndexPage = () => {
     return (
@@ -11,7 +10,7 @@ const IndexPage = () => {
                 <nav className={styles.nav}>
                     <header className={styles.header}>
                         <div className={styles.logo}>
-                            <img src={Logo} alt="" />
+                            <img src="/logo.png" alt="" />
                             <h1 className={styles.h1}>Mevick</h1>
                         </div>
                         <div className={styles.navbar}>
