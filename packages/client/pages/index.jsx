@@ -2,6 +2,25 @@ import React from "react";
 import Link from 'next/link'
 import styles from  '../styles/header.module.css'
 
+// import custom components
+import OfferCard from "../components/offerCard";
+
+// dummy data
+const offersInfo = [
+    {
+        title: "Nursery",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+    {
+        title: "Primary",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+    {
+        title: "Secondary/Commercial",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eos impedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+];
+
 const IndexPage = () => {
     return (
         <div className="main">
@@ -38,30 +57,15 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>What we offer</h1>
                 </div>
                 <div className={styles.whatWeOfferWrapper}>
-                   <div className={styles.nursery}>
-                     <p className={styles.whatWeOfferWrapperTitle}>Nursery</p>
-                      <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                     </p>
-                  </div>
-                  <div className={styles.primary}>
-                      <p className={styles.whatWeOfferWrapperTitle}>Primary</p>
-                      <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                     </p>
-                  </div>
-                  <div className={styles.secondary}>
-                      <p className={styles.whatWeOfferWrapperTitle}>Secondary/Commercial</p>
-                       <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                     </p>
-                  </div>
+                   { offersInfo.map(({title, content}) => {
+                       return (
+                           <OfferCard 
+                            key={title}
+                            title={title}
+                            content={content}
+                           />
+                       )
+                   }) }
                 </div>
             </div>
 
