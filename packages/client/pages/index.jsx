@@ -5,9 +5,10 @@ import styles from  '../styles/header.module.css'
 // import custom components
 import OfferCard from "../components/offerCard";
 import SectionCard from "../components/SectionCard";
+import Facility from "../components/facilitiesCard";
 
 // import data
-import { offersInfo, nursery, primary, secondary } from "../data";
+import { offersInfo, nursery, primary, secondary, facilities } from "../data";
 
 const IndexPage = () => {
     return (
@@ -111,36 +112,17 @@ const IndexPage = () => {
             </div>
             <div className="facilities">
                 <div className={styles.ourNursery}>
-                    <div className={styles.libary}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Libary</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.sport}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Sport field</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.food}>
-                        <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Cantine</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
+                    { facilities.map(({title, content, facility}) => {
+                       return (
+                           <Facility 
+                            key={facility}
+                            facility={facility}
+                            title={title}
+                            content={content}
+                           />
+                       )
+                   }) }
+
                 </div>
             </div>
             <div className="testimonials">

@@ -201,7 +201,7 @@
 .secondaryTwo,
 .secondaryThree,
 .sport,
-.libary,
+.library,
 .food {
   background: whitesmoke;
   flex-basis: 32%;
@@ -306,7 +306,7 @@
   height: 40vh;
   background-size: cover;
 }
-.libary {
+.library {
   background-image: linear-gradient(rgba(23, 29, 53, 0.7), rgba(4, 9, 30, 0.7)),
     url(../public/images/lib.jpeg);
   background-position: center;

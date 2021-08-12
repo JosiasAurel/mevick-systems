@@ -69,4 +69,22 @@ const secondary = [
     },
 ];
 
-export { offersInfo, nursery, primary, secondary };
+const facilities = [
+    {
+        facility: "library",
+        title: "Library",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eosimpedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+    {
+        facility: "sport",
+        title: "Sport Field",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eosimpedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+    {
+        facility: "food",
+        title: "Cantine",
+        content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil ut sit eosimpedit est architecto temporibus eligendi, repellendus cum quod!"
+    },
+];
+
+export { offersInfo, nursery, primary, secondary, facilities };
