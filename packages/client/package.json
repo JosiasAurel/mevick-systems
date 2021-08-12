@@ -4,7 +4,8 @@
   "description": "The official client for the mevick systems project",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "next"
   },
   "keywords": [
     "Education",
