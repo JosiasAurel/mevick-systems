@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link'
-import styles from  '../styles/header.module.css';
+import styles from  '../styles/header.module.css'
 
 const IndexPage = () => {
     return (
@@ -18,7 +18,7 @@ const IndexPage = () => {
                                 <li className={styles.name}>Manual</li>
                                 <li className={styles.name}>About</li>
                                 <li className={styles.name}>Contact</li>
-                                <Link href="/Components/Register">
+                                <Link href="/register">
                                 <li className={styles.name1}>Register</li>    
                                 </Link>
                             </ul>
@@ -28,7 +28,7 @@ const IndexPage = () => {
             <div className={styles.content}>
                <h1 className={styles.h1}>Mevick Bilingual Grammar School</h1>
                <p className={styles.para}>Work-Knowledge-Progress</p>
-               <Link href="/Register">
+               <Link href="/register">
                    <button className={styles.button}>Register</button>
                </Link>
             </div>
@@ -251,7 +251,7 @@ const IndexPage = () => {
 
             <footer className={styles.footer}>
                 <p  className={styles.enroll}>Enroll our varius online cousrse on the genaral Education and also the commercial education</p>
-                 <Link href="/Components/ContactForm">
+                 <Link href="/contact">
                     <li className={styles.contact}>Contact Us</li>    
                  </Link>
             </footer>
