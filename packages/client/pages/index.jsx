@@ -64,11 +64,13 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Nursery</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    { nursery.map(({title, content}) => {
+                    { nursery.map(({title, content, style}) => {
                         return (
-                            <SectionCard 
-                            title={title}
-                            content={content}
+                            <SectionCard
+                                key={style} 
+                                style={style}
+                                title={title}
+                                content={content}
                             />
                         )
                     }) }
@@ -77,11 +79,13 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Primary</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    { nursery.map(({title, content}) => {
+                    { primary.map(({title, content, style}) => {
                         return (
                             <SectionCard 
-                            title={title}
-                            content={content}
+                                key={style}
+                                style={style}
+                                title={title}
+                                content={content}
                             />
                         )
                     }) }
@@ -90,36 +94,16 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Campus/Secondary</h1>
                 </div>
                 <div className={styles.ourNursery}>
-                    <div className={styles.secondaryOne}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Secondary/Commercial</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.secondaryTwo}>
-                         <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Secondary-second-cycle</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
-                    <div className={styles.secondaryThree}>
-                        <div className={styles.overlay}>
-                          <h1 className={styles.whatWeOfferWrapperTitle}>Commercial-second-Cycle</h1>
-                          <p>Lorem, ipsum dolor sit amet consectetur 
-                          adipisicing elit. Nihil ut sit eos
-                          impedit est architecto temporibus 
-                          eligendi, repellendus cum quod!
-                         </p>
-                        </div>
-                    </div>
+                    { secondary.map(({title, content, style}) => {
+                        return (
+                            <SectionCard 
+                                key={style}
+                                style={style}
+                                title={title}
+                                content={content}
+                            />
+                        )
+                    }) }
                 </div>
             </div>
             <div className="header">
