@@ -6,6 +6,7 @@ import styles from  '../styles/header.module.css'
 import OfferCard from "../components/offerCard";
 import SectionCard from "../components/SectionCard";
 import Facility from "../components/facilitiesCard";
+import Testimonial from "../components/testimonial";
 
 // import data
 import { offersInfo, nursery, primary, secondary, facilities } from "../data";
@@ -131,36 +132,11 @@ const IndexPage = () => {
                    <h1 className={styles.whatWeOfferWrapperTitle}>Testimonials</h1>
                 </div>
                 <div className={styles.whatWeOfferWrapper}>
-                   <div className={styles.nursery}>
-                     <div className={styles.testi}>
-                         <div className={styles.prof}></div>
-                         <p>Lorem, ipsum dolor sit amet consectetur 
-                            adipisicing elit. Nihil ut sit eos
-                            impedit est architecto temporibus 
-                            eligendi, repellendus cum quod!
-                         </p>
-                     </div>
-                  </div>
-                   <div className={styles.nursery}>
-                     <div className={styles.testi}>
-                         <div className={styles.prof}></div>
-                         <p>Lorem, ipsum dolor sit amet consectetur 
-                            adipisicing elit. Nihil ut sit eos
-                            impedit est architecto temporibus 
-                            eligendi, repellendus cum quod!
-                         </p>
-                     </div>
-                  </div>
-                   <div className={styles.nursery}>
-                     <div className={styles.testi}>
-                         <div className={styles.prof}></div>
-                         <p>Lorem, ipsum dolor sit amet consectetur 
-                            adipisicing elit. Nihil ut sit eos
-                            impedit est architecto temporibus 
-                            eligendi, repellendus cum quod!
-                         </p>
-                     </div>
-                  </div>
+                   { [1, 2, 3].map(n => {
+                       return (
+                           <Testimonial key={n} />
+                       )
+                   }) }
                 </div>
             </div>
             </div>
