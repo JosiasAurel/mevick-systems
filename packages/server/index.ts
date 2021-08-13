@@ -101,6 +101,7 @@ app.post("/login", (req: Request, res: Response) => {
                 message: "Login Successful",
                 token: newToken,
                 name: user.name,
+                role: user.role
             });
 
         } else {
