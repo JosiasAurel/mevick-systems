@@ -1,5 +1,5 @@
 
-const SERVER_URI = "http://localhost:5000";
+const SERVER_URI = "http://localhost:4000";
 
 async function signUp(name, email, password, userType) {
 
@@ -193,4 +193,4 @@ async function updateArticle(authToken, title, content, readTime) {
     return updateArticleMutationResult;
 }
 
-export { fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };
+export { signUp, logIn,fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };
