@@ -3,16 +3,26 @@ import React, { useState } from 'react'
 // import styles
 import styles from "../styles/register.module.css";
 
+import { signUp } from "../utils/fetchers";
+
 const Register = () => {
-    
+
     // form state values and handler
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     // form value change handler
     function handleInputChange(event, handler) {
         handler(event.target.value);
+    }
+
+    async function registerUser(event) {
+        event.preventDefault(); // prevent reaload
+
+        const registerResponse = await signUp(name, email, password, "User");
+        console.log(registerResponse);
+        
     }
 
     return (
@@ -25,7 +35,7 @@ const Register = () => {
                 <div>
                 <h2>Register</h2>
                 <div className={styles.formContainer}>
-                <form>
+                <form onSubmit={event => registerUser(event)}>
                     <input value={name} onChange={e => handleInputChange(e, setName)} type="text" placeholder="User name" />
                     <input value={email} onChange={e => handleInputChange(e, setEmail)} type="email" placeholder="Email" />
                     <input value={password} onChange={e => handleInputChange(e, setPassword)} type="password" placeholder="Password" />

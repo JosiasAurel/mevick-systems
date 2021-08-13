@@ -16,7 +16,7 @@ async function signUp(name, email, password, userType) {
     };
 
     const signUpResult = await fetch(`${SERVER_URI}/signup`, {
-        mode: "POST",
+        method: "POST",
         headers: requestHeader,
         body: JSON.stringify(signUpBody)
     });
@@ -39,7 +39,7 @@ async function logIn(email, password) {
     };
 
     const logInResult = await fetch(`${SERVER_URI}/login`, {
-        mode: "POST",
+        method: "POST",
         headers: requestHeader,
         body: JSON.stringify(logInBody)
     });

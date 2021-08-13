@@ -6,8 +6,8 @@ import styles from "../../styles/register.module.css";
 const TeacherLogin = () => {
 
     // form state values and handler
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     // form value change handler
     function handleInputChange(event, handler) {
