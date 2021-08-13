@@ -5,7 +5,12 @@ import styles from "../styles/register.module.css";
 
 import { signUp } from "../utils/fetchers";
 
+import { useRouter } from "next/router";
+
 const Register = () => {
+
+    // instance a router
+    const router = useRouter();
 
     // form state values and handler
     const [name, setName] = useState("");
@@ -21,7 +26,16 @@ const Register = () => {
         event.preventDefault(); // prevent reaload
 
         const registerResponse = await signUp(name, email, password, "User");
-        console.log(registerResponse);
+        // console.log(registerResponse);
+        if (registerResponse.Message === "Created") {
+            // set user credentials
+            localStorage.setItem("name", registerResponse.name);
+            localStorage.setItem("token", registerResponse.Token);
+        } else {
+            alert("Could not create your account");
+            // reload page so you try again
+            router.reload();
+        }
         
     }
 
