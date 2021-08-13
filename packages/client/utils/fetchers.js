@@ -1,5 +1,5 @@
 
-const SERVER_URI = "http://localhost:5000";
+const SERVER_URI = "http://localhost:4000";
 
 async function signUp(name, email, password, userType) {
 
@@ -16,7 +16,7 @@ async function signUp(name, email, password, userType) {
     };
 
     const signUpResult = await fetch(`${SERVER_URI}/signup`, {
-        mode: "POST",
+        method: "POST",
         headers: requestHeader,
         body: JSON.stringify(signUpBody)
     });
@@ -39,7 +39,7 @@ async function logIn(email, password) {
     };
 
     const logInResult = await fetch(`${SERVER_URI}/login`, {
-        mode: "POST",
+        method: "POST",
         headers: requestHeader,
         body: JSON.stringify(logInBody)
     });
@@ -193,4 +193,4 @@ async function updateArticle(authToken, title, content, readTime) {
     return updateArticleMutationResult;
 }
 
-export { fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };
+export { signUp, logIn,fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };

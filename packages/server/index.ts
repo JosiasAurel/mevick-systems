@@ -10,6 +10,9 @@ import { typeDefinitions } from "./graphql/typeDefs";
 import { validateToken, createToken } from "./utils/tokenmanager";
 import { hashPassword, isPassword } from "./utils/passmanager";
 
+// import CORS handler
+import cors from "cors";
+
 const app: Application = express();
 
 // import models
@@ -17,6 +20,9 @@ import { User } from "./database";
 
 // accept JSON requests
 app.use(express.json());
+
+// handle cors issues
+app.use(cors());
 
 const port: number = 4000;
 
@@ -95,6 +101,7 @@ app.post("/login", (req: Request, res: Response) => {
                 message: "Login Successful",
                 token: newToken,
                 name: user.name,
+                role: user.role
             });
 
         } else {
