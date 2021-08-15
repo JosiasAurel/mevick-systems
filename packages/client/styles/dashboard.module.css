@@ -1,0 +1,25 @@
+/* Dashboard Pages style */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 80px;
+  background: rgb(0, 0, 36);
+}
+
+.logo {
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+/* Dashboard Index */
+.dashboardIndexPage {
+  background-color: teal;
+  min-height: 100vh;
+}
+/* Dashboard Index end */
