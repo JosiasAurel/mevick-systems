@@ -9,6 +9,10 @@
   height: 300px;
 }
 
+.articleCard:hover {
+  transform: translateY(-5px);
+}
+
 .articleCard h2 {
   font-size: 2.2em;
   margin-left: 0.2em;

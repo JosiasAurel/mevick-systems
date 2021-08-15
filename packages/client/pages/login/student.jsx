@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import styles from "../../styles/register.module.css";
 
 import { logIn } from "../../utils/fetchers";
+import { setCredentials } from "../../utils/misc";
 
 const LoginStudent = () => {
 
@@ -23,7 +24,8 @@ const LoginStudent = () => {
         // console.log(logInResponse);
 
         if (logInResponse.message === "Login Successful") {
-            // do stuff here
+            console.log(logInResponse);
+            setCredentials(logInResponse.name, logInResponse.token);
         } else {
             alert("Something went wrong. Please make sure your email and password are correct");
         }
