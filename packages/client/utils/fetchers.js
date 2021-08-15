@@ -65,12 +65,12 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
     };
 
     const graphqlActionQuery = {
-        query: `query ${variablesPlaceholder} ${query}`,
+        query: `query ${query}`,
         variables: JSON.stringify(variables)
     };
 
     const graphQLActionQueryWithVars = {
-        query: `query ${query}`
+        query: `query ${variablesPlaceholder} ${query}`
     };
 
     const graphqlActionMutation = {
@@ -142,7 +142,7 @@ async function fetchUser(authToken, userId) {
 
 async function fetchArticles(authToken) {
 
-    const getArticlesQuery = "{ getArticles() { title, content, readTime, owner { name } } }";
+    const getArticlesQuery = "{ getArticles { title, content, readTime, owner { name } } }";
 
     const getArticlesQueryResult = await sendGraphQLRequest(authToken, "query", getArticlesQuery);
 
