@@ -6,7 +6,11 @@ import styles from "../../styles/register.module.css";
 import { logIn } from "../../utils/fetchers";
 import { setCredentials } from "../../utils/misc";
 
+import { useRouter } from "next/router";
+
 const LoginStudent = () => {
+
+    const router = useRouter();
 
     // form state values and handler
     const [email, setEmail] = useState("");
@@ -26,6 +30,7 @@ const LoginStudent = () => {
         if (logInResponse.message === "Login Successful") {
             console.log(logInResponse);
             setCredentials(logInResponse.name, logInResponse.token);
+            router.replace("/explore");
         } else {
             alert("Something went wrong. Please make sure your email and password are correct");
         }

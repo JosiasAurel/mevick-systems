@@ -7,22 +7,55 @@ import ArticleCard from "../../components/articleCard";
 import { fetchArticles } from "../../utils/fetchers";
 
 const DashboardPage = () => {
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetchArticles();
-    }, []);
+        const authToken = localStorage.getItem("token");
+        fetchArticles(authToken).then(articles_ => {
+            setArticles(articles_.getArticles);
+            if (articles_ !== undefined) {
+                setTimeout(() => setLoading(false), 2000);
+            }
+            console.log(articles);
+        });
+        
+    }, [loading]);
+    
+    if (loading) {
+        return (
+            <div>
+                <header className={styles.header}>
+                    <h2 className={styles.logo}>Mevick Systems_</h2>
+                </header>
+                <div className={styles.loaderCn}>
+                    <div className={styles.loader}>
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    let pageContent = articles;
+    console.log(pageContent);
     return (
         <div className={styles.dashboardIndexPage}>
             <header className={styles.header}>
                 <h2 className={styles.logo}>Mevick Systems_</h2>
             </header>
-
-            <article>
-                <ArticleCard 
-                title={"How to handle network egress issues"}
-                readTime={4}
-                date={"Sun 15 Aug 2021"}
-                />
-            </article>
+                <main className={styles.mainContent}>
+                    <article className={styles.articlesCn}>
+                    { articles.map(({ title, readTime, id }) => {
+                    return (
+                        <ArticleCard 
+                        key={id}
+                        title={title}
+                        readTime={readTime}
+                        />
+                    )
+                }) }
+                </article>
+                </main>
         </div>
     )
 }
