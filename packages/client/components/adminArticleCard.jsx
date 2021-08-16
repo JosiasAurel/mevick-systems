@@ -5,15 +5,15 @@ import styles from "../styles/components.module.css";
 const AdminArticleCard = ({ title, readTime, id, editAction, deleteAction }) => {
     return (
         <div className={styles.adminArticleCard}>
-            <div>
+            <div className={styles.headSection}>
                 <h2> { title } </h2>
                 <p> {readTime} min(s) read </p>
             </div>
-            <div>
-                <button onClick={() => editAction()}>
+            <div className={styles.actionsSection}>
+                <button className={styles.actionEdit} onClick={() => editAction()}>
                     Edit
                 </button>
-                <button onClick={() => deleteAction()}>
+                <button className={styles.actionDelete} onClick={() => deleteAction()}>
                     Delete
                 </button>
             </div>

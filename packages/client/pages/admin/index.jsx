@@ -144,7 +144,7 @@ const Articles = () => {
     return (
         <div>
             <Link href="/admin/users/create">
-                <button className={styles.createUser_User}>
+                <button className={styles.createArticle_Article}>
                     Create Article
                 </button>
             </Link>

@@ -173,3 +173,14 @@
   color: white;
   padding: 0.5em 1em;
 }
+
+/* Article section admin index */
+.createArticle_Article {
+  background-color: rgb(0, 0, 48);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  position: relative;
+  top: 4vh;
+  left: 20vw;
+}
