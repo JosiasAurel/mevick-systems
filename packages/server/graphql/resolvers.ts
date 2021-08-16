@@ -219,6 +219,69 @@ const resolvers = {
             } else {
                 return {status: "Failed"}
             }
+        },
+        updateUser: (parent: any, args: any) => {
+
+            // get the id of the article 
+            const { id } = args;
+
+            let isError: boolean = false;
+            let isError_: boolean = false;
+
+            let unval: any; // dirty trick 1
+
+            let oldArticleData: any;
+
+            User.findById(id, (error: any, article_: any) => {
+                if (error) {
+                    isError = true;
+                }
+
+                // take new article data
+                oldArticleData = article_;
+                // console.log(article_);
+
+                // update article under here
+                User.findByIdAndUpdate(id, {
+                    name: args.name ? args.name : article_.name,
+                    email: args.email ? args.email : article_.email,
+                }, (error: any, updatedArticle__: any) => {
+                    if (error) {
+                        isError_ = true;
+                    }
+
+                })
+            });
+
+            if (!isError) {
+                if (!isError_) {
+                    return {status: "Success"}
+                }
+            } else {
+                return {status: "Failed"}
+            }
+        },
+
+        deleteUser: (parent: any, args: any) => {
+
+            // get the id of the article to delete
+            const { id } = args;
+
+            let isError: boolean = false; // error checker
+
+            User.findByIdAndDelete(id, {}, (error: any, _: any) => {
+                if (error) {
+                    isError = true;
+                    return;
+                }
+
+            });
+
+            if (!isError) {
+                return {status: "Success"}
+            } else {
+                return {status: "Failed"}
+            }
         }
 
     }
