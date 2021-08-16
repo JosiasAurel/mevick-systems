@@ -12,7 +12,7 @@ const typeDefinitions: any = gql`
         title: String!
         content: String!
         readTime: Int!
-        owner: User
+        owner: String!
         id: ID!
     }
 
@@ -28,9 +28,9 @@ const typeDefinitions: any = gql`
     }
 
     type Mutation {
-        createArticle(title: String!, content: String!, readTime: Int!, owner: String!): MSresponse
+        createArticle(title: String!, content: String!, readTime: String!): MSresponse
         deleteArticle(id: String!): MSresponse
-        updateArticle(id: String!, title: String, content: String, readTime: Int): MSresponse
+        updateArticle(id: String!, title: String, content: String, readTime: String): MSresponse
         updateUser(id: String!, name: String, email: String): MSresponse
         deleteUser(id: String!): MSresponse
     }
