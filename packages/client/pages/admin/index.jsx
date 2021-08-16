@@ -8,7 +8,7 @@ import AdminArticleCard from "../../components/adminArticleCard";
 import Header from "../../components/Header";
 
 // utilities - fetchers
-import { fetchUsers, deleteUser, fetchArticles } from "../../utils/fetchers";
+import { fetchUsers, deleteUser, fetchArticles, deleteArticle } from "../../utils/fetchers";
 
 import Link from "next/link";
 import router from "next/router";
@@ -121,10 +121,10 @@ const Articles = () => {
         });
     }, []);
 
-    function deleteUser_(uid) {
-        return function manage() {
-            deleteUser(token, uid).then(res => {
-                router.reload();
+    function deleteArticle_(aid) {
+        return function da_() {
+            deleteArticle(token, aid).then(res => {
+                console.log(res);
             });
         }
     }
@@ -156,6 +156,7 @@ const Articles = () => {
                         key={id}
                         title={title}
                         readTime={readTime}
+                        deleteAction={deleteArticle_(id)}
                         />
                     )
                 })}
