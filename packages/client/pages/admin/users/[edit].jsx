@@ -10,8 +10,8 @@ import styles from "../../../styles/dashboard.module.css";
 
 const EditUserPage = ({ userId }) => {
 
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
     const [token, setToken] = useState();
 
@@ -31,11 +31,7 @@ const EditUserPage = ({ userId }) => {
         event.preventDefault(); // prevent direct reload
 
         updateUser(token, userId, name, email).then(res => {
-            if (res.status === "success") {
-                router.replace("/admin");
-            } else {
-                alert("Could not update user information");
-            }
+            router.replace("/admin");
         })
     }
 

@@ -57,13 +57,11 @@ const Users = () => {
     }, []);
 
     function deleteUser_(uid) {
-        return deleteUser(token, uid).then(res => {
-            if (res.status === "success") {
+        return function manage() {
+            deleteUser(token, uid).then(res => {
                 router.reload();
-            } else {
-                alert("Could not delete user");
-            }
-        });
+            });
+        }
     }
 
     if (loading) {
@@ -93,7 +91,7 @@ const Users = () => {
                         key={id}
                         name={name}
                         email={email}
-                        deleteAction={deleteUser_}
+                        deleteAction={deleteUser_(id)}
                         editAction={() => router.replace(`/admin/users/${id}`)}
                         />
                     )
