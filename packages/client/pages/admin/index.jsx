@@ -157,6 +157,7 @@ const Articles = () => {
                         title={title}
                         readTime={readTime}
                         deleteAction={deleteArticle_(id)}
+                        editAction={() => router.replace(`/admin/article/${id}`)}
                         />
                     )
                 })}
