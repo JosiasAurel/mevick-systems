@@ -73,3 +73,8 @@
 .adminUserCard .actions .actionDelete {
   background-color: red;
 }
+
+/* Admin article card */
+.adminArticleCard {
+  border: solid 1px grey;
+}
