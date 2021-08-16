@@ -131,16 +131,16 @@ const resolvers = {
     },
 
     Mutation: {
-        createArticle: (parent: any, args: any) => {
-            
+        createArticle: (parent: any, args: any, context: any) => {
+            // console.log(context)
             // get the article data from the graphql params
-            const { title, content, readTime, owner } = args;
+            const { title, content, readTime } = args;
 
             // error checker
             let isError: boolean = false;
 
             // create the new article
-            let newArticle: any = new Article({title, content, readTime, owner});
+            let newArticle: any = new Article({title, content, readTime, owner: context.id});
 
             // save the new article
             newArticle.save((error: any, newArticle__: any) => {
