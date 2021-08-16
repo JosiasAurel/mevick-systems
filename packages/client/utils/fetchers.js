@@ -183,10 +183,10 @@ async function deleteArticle(authToken, articleId) {
     return deleteArticleMutationResult;
 }
 
-async function updateArticle(authToken, title, content, readTime) {
-    const updateArticleMutationVariablesPlaceholder = "($title: String, $content: String, readTime: Int)";
-    const updateArticleVariables = {title, content, readTime};
-    const updateArticleMutation = "updateArticle(title: $title, content: $content, readTime: $readTime) { status }";
+async function updateArticle(authToken, id, title, content, readTime) {
+    const updateArticleMutationVariablesPlaceholder = "($id: String!, $title: String, $content: String, $readTime: String)";
+    const updateArticleVariables = {title, content, readTime, id};
+    const updateArticleMutation = "updateArticle(id: $id, title: $title, content: $content, readTime: $readTime) { status }";
 
     const updateArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", updateArticleMutation, updateArticleMutationVariablesPlaceholder, updateArticleVariables);
 
