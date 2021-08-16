@@ -147,3 +147,29 @@
   top: 10vh;
   left: 20vw;
 }
+
+/* Edit Page in admin dashboard */
+
+.editUserformContainer {
+  margin-top: 2em;
+}
+
+.editUserformContainer,
+.editUserformContainer form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.editUserformContainer form input {
+  border: solid 2px black;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+}
+
+.editUserformContainer form button {
+  background-color: black;
+  color: white;
+  padding: 0.5em 1em;
+}
