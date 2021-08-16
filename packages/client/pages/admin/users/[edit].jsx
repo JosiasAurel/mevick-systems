@@ -6,7 +6,9 @@ import router from "next/router";
 
 import { updateUser } from "../../../utils/fetchers";
 
-const EditUserPage = () => {
+import styles from "../../../styles/dashboard.module.css";
+
+const EditUserPage = ({ userId }) => {
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -14,6 +16,7 @@ const EditUserPage = () => {
     const [token, setToken] = useState();
 
     useEffect(() => {
+        console.log(userId);
         const authToken = localStorage.getItem("token") ?? undefined;
         if (authToken !== undefined) {
             setToken(authToken);
@@ -27,7 +30,7 @@ const EditUserPage = () => {
     function handleSubmit(event) {
         event.preventDefault(); // prevent direct reload
 
-        updateUser(token, name, email).then(res => {
+        updateUser(token, userId, name, email).then(res => {
             if (res.status === "success") {
                 router.replace("/admin");
             } else {
@@ -37,10 +40,10 @@ const EditUserPage = () => {
     }
 
     return (
-        <div>
+        <div className={styles.updateUserInfo}>
             <Header />
 
-            <div>
+            <div className={styles.editUserformContainer}>
                 <h2>Update User Infomation</h2>
                 <form onSubmit={e => handleSubmit(e)}>
                     <input value={name} onChange={e => handleChange(e, setName)} type="text" placeholder="Name" />
@@ -52,6 +55,16 @@ const EditUserPage = () => {
             </div>
         </div>
     )
+}
+
+export async function getServerSideProps(ctx) {
+    const userId = ctx.query.edit;
+
+    // console.log(userId);
+
+    return {
+        props: { userId }
+    }
 }
 
 export default EditUserPage;

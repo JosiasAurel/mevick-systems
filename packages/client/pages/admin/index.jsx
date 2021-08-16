@@ -94,6 +94,7 @@ const Users = () => {
                         name={name}
                         email={email}
                         deleteAction={deleteUser_}
+                        editAction={() => router.replace(`/admin/users/${id}`)}
                         />
                     )
                 })}
