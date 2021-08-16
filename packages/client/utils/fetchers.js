@@ -193,4 +193,36 @@ async function updateArticle(authToken, title, content, readTime) {
     return updateArticleMutationResult;
 }
 
-export { signUp, logIn,fetchUsers, fetchUser, fetchArticles, fetchArticle, createArticle, updateArticle, deleteArticle };
+async function deleteUser(authToken, userId) {
+    const deleteArticleMutationVariablesPlaceholder = "($id: String!)";
+    const deleteArticleVariables = {id: userId};
+    const deleteArticleMutation = "deleteUser(id: $id) {status}";
+
+    const deleteArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", deleteArticleMutation, deleteArticleMutationVariablesPlaceholder, deleteArticleVariables);
+
+    return deleteArticleMutationResult;
+}
+
+async function updateUser(authToken, name, email) {
+    const updateArticleMutationVariablesPlaceholder = "($name: String, $email: String";
+    const updateArticleVariables = {name, email};
+    const updateArticleMutation = "updateArticle(name: $name, email: $email) { status }";
+
+    const updateArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", updateArticleMutation, updateArticleMutationVariablesPlaceholder, updateArticleVariables);
+
+    return updateArticleMutationResult;
+}
+
+export { 
+    signUp, 
+    logIn,
+    fetchUsers, 
+    fetchUser, 
+    fetchArticles, 
+    fetchArticle, 
+    createArticle, 
+    updateArticle, 
+    deleteArticle, 
+    updateUser, 
+    deleteUser 
+};
