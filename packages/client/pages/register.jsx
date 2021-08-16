@@ -36,7 +36,7 @@ const Register = () => {
             // reload page so you try again
             router.reload();
         }
-        
+        router.replace("/explore");
     }
 
     return (
