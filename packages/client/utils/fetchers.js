@@ -162,11 +162,11 @@ async function fetchArticle(authToken, articleId) {
 /* GraphQL query Handlers -- END */
 
 /* GraphQL mutation Handlers */
-async function createArticle(authToken, title, content, readTime, owner) {
+async function createArticle(authToken, title, content, readTime) {
 
-    const createArticleMutationVariablesPlaceholder = "($title: String!, $content: String!, $readTime: Int!, $owner: String!)";
-    const createArticleMutationVariables = {title, content, readTime, owner};
-    const createArticleMutation = "createArticle(title: $title, content: $content, readTime: $readTime, owner: $owner) { status }";
+    const createArticleMutationVariablesPlaceholder = "($title: String!, $content: String!, $readTime: String!)";
+    const createArticleMutationVariables = {title, content, readTime};
+    const createArticleMutation = "createArticle(title: $title, content: $content, readTime: $readTime) { status }";
 
     const createArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", createArticleMutation, createArticleMutationVariablesPlaceholder, createArticleMutationVariables);
 
