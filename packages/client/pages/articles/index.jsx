@@ -6,15 +6,21 @@ import ArticleCard from "../../components/articleCard";
 
 import { fetchArticles } from "../../utils/fetchers";
 
+import { useRouter } from "next/router";
+
 const DashboardPage = () => {
+
+    const router = useRouter();
+
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+        const waitTime = Math.floor(Math.random() * 4000);
         const authToken = localStorage.getItem("token");
         fetchArticles(authToken).then(articles_ => {
             setArticles(articles_.getArticles);
             if (articles_ !== undefined) {
-                setTimeout(() => setLoading(false), 2000);
+                setTimeout(() => setLoading(false), waitTime);
             }
             console.log(articles);
         });
@@ -44,17 +50,28 @@ const DashboardPage = () => {
                 <h2 className={styles.logo}>Mevick Systems_</h2>
             </header>
                 <main className={styles.mainContent}>
+                    { articles === [] ?
+                    <div>
+                        <div>
+                            <h1>No Articles yet!</h1>
+                            <button onClick={() => router.reload()} >Retry</button>
+                        </div>
+                    </div>
+                    :
                     <article className={styles.articlesCn}>
                     { articles.map(({ title, readTime, id }) => {
                     return (
                         <ArticleCard 
                         key={id}
+                        id={id}
                         title={title}
                         readTime={readTime}
                         />
                     )
                 }) }
                 </article>
+                     }
+                    
                 </main>
         </div>
     )
