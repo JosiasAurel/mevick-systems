@@ -29,8 +29,10 @@ const typeDefinitions: any = gql`
 
     type Mutation {
         createArticle(title: String!, content: String!, readTime: Int!, owner: String!): MSresponse
-        deleteArticle(id: ID!): MSresponse
-        updateArticle(id: ID!, title: String, content: String, readTime: Int): MSresponse
+        deleteArticle(id: String!): MSresponse
+        updateArticle(id: String!, title: String, content: String, readTime: Int): MSresponse
+        updateUser(id: String!, name: String, email: String, password: String): MSresponse
+        deleteUser(id: String!): MSresponse
     }
 `;
 
