@@ -4,12 +4,12 @@ import styles from "../styles/dashboard.module.css";
 
 import ToolComp from "../components/Tool";
 
+import Header from "../components/Header";
+
 const ExplorePage = () => {
     return (
         <div>
-                <header className={styles.header}>
-                    <h2 className={styles.logo}>Mevick Systems_</h2>
-                </header>
+                <Header />
 
                 <main className={styles.tools}>
                     <ToolComp toolName="Articles" target="/articles" />

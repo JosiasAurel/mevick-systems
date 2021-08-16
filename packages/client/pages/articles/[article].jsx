@@ -4,6 +4,8 @@ import { fetchArticle } from "../../utils/fetchers";
 
 import styles from "../../styles/dashboard.module.css";
 
+import Header from "../../components/Header";
+
 const ArticlePage = () => {
 
     const [article, setArticle] = useState();
@@ -31,9 +33,7 @@ const ArticlePage = () => {
 
     if (loading) {
         <div>
-                <header className={styles.header}>
-                    <h2 className={styles.logo}>Mevick Systems_</h2>
-                </header>
+                <Header />
                 <div className={styles.loaderCn}>
                     <div className={styles.loader}>
 
@@ -44,9 +44,7 @@ const ArticlePage = () => {
 
     return (
         <div>
-                <header className={styles.header}>
-                    <h2 className={styles.logo}>Mevick Systems_</h2>
-                </header>
+                <Header />
 
                 <main>
                     { article !== undefined ?

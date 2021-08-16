@@ -8,6 +8,8 @@ import { setCredentials } from "../../utils/misc";
 
 import { useRouter } from "next/router";
 
+import Header from '../../components/Header';
+
 const LoginStudent = () => {
 
     const router = useRouter();
@@ -38,9 +40,7 @@ const LoginStudent = () => {
     
     return (
         <div className={styles.registerPage}>
-            <header className={styles.header}>
-                <h1 className={styles.logo}>Mevick</h1>
-            </header>
+            <Header />
 
             <div className={styles.form__elements}>
                 <div>

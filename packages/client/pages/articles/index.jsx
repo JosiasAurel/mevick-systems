@@ -7,6 +7,7 @@ import ArticleCard from "../../components/articleCard";
 import { fetchArticles } from "../../utils/fetchers";
 
 import { useRouter } from "next/router";
+import Header from "../../components/Header";
 
 const DashboardPage = () => {
 
@@ -30,9 +31,7 @@ const DashboardPage = () => {
     if (loading) {
         return (
             <div>
-                <header className={styles.header}>
-                    <h2 className={styles.logo}>Mevick Systems_</h2>
-                </header>
+                <Header />
                 <div className={styles.loaderCn}>
                     <div className={styles.loader}>
 
@@ -46,9 +45,7 @@ const DashboardPage = () => {
     console.log(pageContent);
     return (
         <div className={styles.dashboardIndexPage}>
-            <header className={styles.header}>
-                <h2 className={styles.logo}>Mevick Systems_</h2>
-            </header>
+            <Header />
                 <main className={styles.mainContent}>
                     { articles === [] ?
                     <div>

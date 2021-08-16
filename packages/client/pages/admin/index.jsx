@@ -4,18 +4,19 @@ import styles from "../../styles/dashboard.module.css";
 
 // admin components
 import AdminUserCard from "../../components/adminUserCard";
+import Header from "../../components/Header";
 
 // utilities - fetchers
 import { fetchUsers } from "../../utils/fetchers";
+
+import Link from "next/link";
 
 const AdminPage = () => {
     const [page, setPage] = useState("users");
 
     return (
         <div>
-            <header className={styles.header}>
-                <h2 className={styles.logo}>Mevick Systems_</h2>
-            </header>
+            <Header />
 
             <div className={styles.adminDashboard}>
                 <div className={styles.adminDashboardToggle}>
@@ -66,6 +67,12 @@ const Users = () => {
 
     return (
         <div>
+            <Link href="/admin/users/create">
+                <button className={styles.createUser_User}>
+                    Create User
+                </button>
+            </Link>
+            
             <div className={styles.adminUsersUsersList}>
                 {users.map(({ name, email, id }) => {
                     return (
