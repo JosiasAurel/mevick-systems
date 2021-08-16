@@ -31,7 +31,7 @@ const typeDefinitions: any = gql`
         createArticle(title: String!, content: String!, readTime: Int!, owner: String!): MSresponse
         deleteArticle(id: String!): MSresponse
         updateArticle(id: String!, title: String, content: String, readTime: Int): MSresponse
-        updateUser(id: String!, name: String, email: String, password: String): MSresponse
+        updateUser(id: String!, name: String, email: String): MSresponse
         deleteUser(id: String!): MSresponse
     }
 `;
