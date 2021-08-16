@@ -18,9 +18,9 @@ const typeDefinitions: any = gql`
 
     type Query {
         getUsers: [User]
-        getUser(id: ID): User
+        getUser(id: String!): User
         getArticles: [Article]
-        getArticle(id: ID): Article
+        getArticle(id: String!): Article
     }
 
     type MSresponse {

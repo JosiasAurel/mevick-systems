@@ -97,23 +97,27 @@ const resolvers = {
 
             // error checker
             let isError: boolean = false;
+            let isError_: boolean = false;
 
             let fetchedArticle: any; 
 
-            let unval: any; // dirty trick that work...
+            let unval: any; // dirty trick that work..
+            let unval_: any;
 
-            let article__: any = await Article.findById(id, (error: any, article_: any) => {
+            let article__: any = await Article.findById(id, async (error: any, article_: any) => {
                 if (error) {
                     isError = true;
                 }
-
+    
                 fetchedArticle = article_;
             });
 
             unval = await article__;
 
             if (!isError) {
-                return fetchedArticle;
+                if (!isError_) {
+                    return fetchedArticle;
+                }
             } else {
                 return {
                     title: "NO",
