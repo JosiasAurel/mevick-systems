@@ -4,10 +4,11 @@ import styles from "../../styles/dashboard.module.css";
 
 // admin components
 import AdminUserCard from "../../components/adminUserCard";
+import AdminArticleCard from "../../components/adminArticleCard";
 import Header from "../../components/Header";
 
 // utilities - fetchers
-import { fetchUsers, deleteUser, updateUser } from "../../utils/fetchers";
+import { fetchUsers, deleteUser, fetchArticles } from "../../utils/fetchers";
 
 import Link from "next/link";
 import router from "next/router";
@@ -102,9 +103,63 @@ const Users = () => {
 }
 
 const Articles = () => {
+    const [articles, setArticles] = useState();
+    const [loading, setLoading] = useState(true);
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        const waitTime = Math.floor(Math.random() * 2500);
+        const authToken = localStorage.getItem("token");
+        setToken(authToken);
+
+        fetchArticles(authToken).then(articles_ => {
+            setArticles(articles_.getArticles);
+            console.log(articles_);
+            if (articles_ !== undefined) {
+                setTimeout(() => setLoading(false), waitTime);
+            }
+        });
+    }, []);
+
+    function deleteUser_(uid) {
+        return function manage() {
+            deleteUser(token, uid).then(res => {
+                router.reload();
+            });
+        }
+    }
+
+    if (loading) {
+        return (
+            <div>
+                <div className={styles.loaderCn}>
+                    <div className={styles.loader}>
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
-            <h2>Article things...</h2>
+            <Link href="/admin/users/create">
+                <button className={styles.createUser_User}>
+                    Create Article
+                </button>
+            </Link>
+            
+            <div className={styles.adminUsersUsersList}>
+                {articles.map(({ title, readTime, id }) => {
+                    return (
+                        <AdminArticleCard 
+                        key={id}
+                        title={title}
+                        readTime={readTime}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }
