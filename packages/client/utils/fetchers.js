@@ -203,10 +203,10 @@ async function deleteUser(authToken, userId) {
     return deleteArticleMutationResult;
 }
 
-async function updateUser(authToken, name, email) {
-    const updateArticleMutationVariablesPlaceholder = "($name: String, $email: String";
-    const updateArticleVariables = {name, email};
-    const updateArticleMutation = "updateArticle(name: $name, email: $email) { status }";
+async function updateUser(authToken, id, name, email) {
+    const updateArticleMutationVariablesPlaceholder = "($id: String!, $name: String, $email: String";
+    const updateArticleVariables = {name, email, id};
+    const updateArticleMutation = "updateUser(id: $id, name: $name, email: $email) { status }";
 
     const updateArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", updateArticleMutation, updateArticleMutationVariablesPlaceholder, updateArticleVariables);
 
