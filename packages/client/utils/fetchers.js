@@ -122,7 +122,7 @@ async function sendGraphQLRequest(authToken, action, query, variablesPlaceholder
 
 /* GraphQL Query Handlers */
 async function fetchUsers(authToken) {
-    const getUsersQuery = "{ getUsers() { name, email, id } }";
+    const getUsersQuery = "{ getUsers { name, email, id } }";
 
     const getUsersQueryresult = await sendGraphQLRequest(authToken, "query", getUsersQuery);
 
@@ -165,7 +165,7 @@ async function fetchArticle(authToken, articleId) {
 async function createArticle(authToken, title, content, readTime, owner) {
 
     const createArticleMutationVariablesPlaceholder = "($title: String!, $content: String!, $readTime: Int!, $owner: String!)";
-    const createArticleMutationVariables = {title, content, readTime};
+    const createArticleMutationVariables = {title, content, readTime, owner};
     const createArticleMutation = "createArticle(title: $title, content: $content, readTime: $readTime, owner: $owner) { status }";
 
     const createArticleMutationResult = await sendGraphQLRequest(authToken, "mutation", createArticleMutation, createArticleMutationVariablesPlaceholder, createArticleMutationVariables);
