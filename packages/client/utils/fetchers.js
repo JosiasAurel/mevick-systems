@@ -142,7 +142,7 @@ async function fetchUser(authToken, userId) {
 
 async function fetchArticles(authToken) {
 
-    const getArticlesQuery = "{ getArticles { title, content, readTime, id, owner { name } } }";
+    const getArticlesQuery = "{ getArticles { title, content, readTime, id } }";
 
     const getArticlesQueryResult = await sendGraphQLRequest(authToken, "query", getArticlesQuery);
 
@@ -152,7 +152,7 @@ async function fetchArticles(authToken) {
 async function fetchArticle(authToken, articleId) {
     const getArticleQueryVariablesPlaceholder = "($id: String!)";
     const getArticleQueryVariables = {id: articleId};
-    const getArticleQuery = "getArticle(id: $id) { title, content, readTime, owner { name } }";
+    const getArticleQuery = "getArticle(id: $id) { title, content, readTime }";
 
     const getArticleQuersResult = await sendGraphQLRequest(authToken, "queryWithVars", getArticleQuery, getArticleQueryVariablesPlaceholder, getArticleQueryVariables);
 
@@ -174,7 +174,7 @@ async function createArticle(authToken, title, content, readTime) {
 }
 
 async function deleteArticle(authToken, articleId) {
-    const deleteArticleMutationVariablesPlaceholder = "($id: ID!)";
+    const deleteArticleMutationVariablesPlaceholder = "($id: String!)";
     const deleteArticleVariables = {id: articleId};
     const deleteArticleMutation = "deleteArticle(id: $id) {status}";
 
