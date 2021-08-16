@@ -5,6 +5,8 @@ import styles from "../../styles/register.module.css";
 
 import { logIn } from "../../utils/fetchers";
 
+import Header from '../../components/Header';
+
 const TeacherLogin = () => {
 
     // form state values and handler
@@ -31,9 +33,7 @@ const TeacherLogin = () => {
     
     return (
         <div className={styles.registerPage}>
-            <header className={styles.header}>
-                <h1 className={styles.logo}>Mevick</h1>
-            </header>
+            <Header />
 
             <div className={styles.form__elements}>
                 <div>

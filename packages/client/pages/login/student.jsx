@@ -4,8 +4,15 @@ import React, { useState } from 'react'
 import styles from "../../styles/register.module.css";
 
 import { logIn } from "../../utils/fetchers";
+import { setCredentials } from "../../utils/misc";
+
+import { useRouter } from "next/router";
+
+import Header from '../../components/Header';
 
 const LoginStudent = () => {
+
+    const router = useRouter();
 
     // form state values and handler
     const [email, setEmail] = useState("");
@@ -23,7 +30,9 @@ const LoginStudent = () => {
         // console.log(logInResponse);
 
         if (logInResponse.message === "Login Successful") {
-            // do stuff here
+            console.log(logInResponse);
+            setCredentials(logInResponse.name, logInResponse.token);
+            router.replace("/explore");
         } else {
             alert("Something went wrong. Please make sure your email and password are correct");
         }
@@ -31,9 +40,7 @@ const LoginStudent = () => {
     
     return (
         <div className={styles.registerPage}>
-            <header className={styles.header}>
-                <h1 className={styles.logo}>Mevick</h1>
-            </header>
+            <Header />
 
             <div className={styles.form__elements}>
                 <div>

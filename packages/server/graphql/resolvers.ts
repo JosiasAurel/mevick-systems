@@ -97,23 +97,27 @@ const resolvers = {
 
             // error checker
             let isError: boolean = false;
+            let isError_: boolean = false;
 
             let fetchedArticle: any; 
 
-            let unval: any; // dirty trick that work...
+            let unval: any; // dirty trick that work..
+            let unval_: any;
 
-            let article__: any = await Article.findById(id, (error: any, article_: any) => {
+            let article__: any = await Article.findById(id, async (error: any, article_: any) => {
                 if (error) {
                     isError = true;
                 }
-
+    
                 fetchedArticle = article_;
             });
 
             unval = await article__;
 
             if (!isError) {
-                return fetchedArticle;
+                if (!isError_) {
+                    return fetchedArticle;
+                }
             } else {
                 return {
                     title: "NO",
@@ -127,16 +131,16 @@ const resolvers = {
     },
 
     Mutation: {
-        createArticle: (parent: any, args: any) => {
-            
+        createArticle: (parent: any, args: any, context: any) => {
+            // console.log(context)
             // get the article data from the graphql params
-            const { title, content, readTime, owner } = args;
+            const { title, content, readTime } = args;
 
             // error checker
             let isError: boolean = false;
 
             // create the new article
-            let newArticle: any = new Article({title, content, readTime, owner});
+            let newArticle: any = new Article({title, content, readTime, owner: context.id});
 
             // save the new article
             newArticle.save((error: any, newArticle__: any) => {
@@ -203,6 +207,69 @@ const resolvers = {
             let isError: boolean = false; // error checker
 
             Article.findByIdAndDelete(id, {}, (error: any, _: any) => {
+                if (error) {
+                    isError = true;
+                    return;
+                }
+
+            });
+
+            if (!isError) {
+                return {status: "Success"}
+            } else {
+                return {status: "Failed"}
+            }
+        },
+        updateUser: (parent: any, args: any) => {
+
+            // get the id of the article 
+            const { id } = args;
+
+            let isError: boolean = false;
+            let isError_: boolean = false;
+
+            let unval: any; // dirty trick 1
+
+            let oldArticleData: any;
+
+            User.findById(id, (error: any, article_: any) => {
+                if (error) {
+                    isError = true;
+                }
+
+                // take new article data
+                oldArticleData = article_;
+                // console.log(article_);
+
+                // update article under here
+                User.findByIdAndUpdate(id, {
+                    name: args.name ? args.name : article_.name,
+                    email: args.email ? args.email : article_.email,
+                }, (error: any, updatedArticle__: any) => {
+                    if (error) {
+                        isError_ = true;
+                    }
+
+                })
+            });
+
+            if (!isError) {
+                if (!isError_) {
+                    return {status: "Success"}
+                }
+            } else {
+                return {status: "Failed"}
+            }
+        },
+
+        deleteUser: (parent: any, args: any) => {
+
+            // get the id of the article to delete
+            const { id } = args;
+
+            let isError: boolean = false; // error checker
+
+            User.findByIdAndDelete(id, {}, (error: any, _: any) => {
                 if (error) {
                     isError = true;
                     return;

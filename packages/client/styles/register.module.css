@@ -6,6 +6,27 @@
   height: 100vh;
 }
 
+.registerPage_ {
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+  color: black;
+  height: 100vh;
+}
+
+.registerPage_ .form__elements h2 {
+  font-size: 2.5em;
+  color: black;
+}
+
+.registerPage_ .formContainer form button {
+  color: black;
+}
+
+.registerPage_ .formContainer form input {
+  color: black;
+}
+
 .header {
   margin: 0 1em;
 }
