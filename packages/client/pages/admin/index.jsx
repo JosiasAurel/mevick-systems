@@ -7,9 +7,10 @@ import AdminUserCard from "../../components/adminUserCard";
 import Header from "../../components/Header";
 
 // utilities - fetchers
-import { fetchUsers } from "../../utils/fetchers";
+import { fetchUsers, deleteUser, updateUser } from "../../utils/fetchers";
 
 import Link from "next/link";
+import router from "next/router";
 
 const AdminPage = () => {
     const [page, setPage] = useState("users");
@@ -39,10 +40,12 @@ const AdminPage = () => {
 const Users = () => {
     const [users, setUsers] = useState();
     const [loading, setLoading] = useState(true);
+    const [token, setToken] = useState("");
 
     useEffect(() => {
         const waitTime = Math.floor(Math.random() * 2500);
         const authToken = localStorage.getItem("token");
+        setToken(authToken);
 
         fetchUsers(authToken).then(users_ => {
             setUsers(users_.getUsers);
@@ -52,6 +55,16 @@ const Users = () => {
             }
         });
     }, []);
+
+    function deleteUser_(uid) {
+        return deleteUser(token, uid).then(res => {
+            if (res.status === "success") {
+                router.reload();
+            } else {
+                alert("Could not delete user");
+            }
+        });
+    }
 
     if (loading) {
         return (
@@ -80,6 +93,7 @@ const Users = () => {
                         key={id}
                         name={name}
                         email={email}
+                        deleteAction={deleteUser_}
                         />
                     )
                 })}
