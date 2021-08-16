@@ -34,3 +34,41 @@
   font-family: sans-serif;
   font-size: 0.8em;
 }
+
+/* Admin components */
+.adminUserCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(0, 0, 48);
+  color: white;
+  max-width: 80%;
+  border-radius: 3px;
+  padding: 0.4em 1em;
+}
+
+.adminUserCard h2 {
+  margin: 0 0.4em;
+}
+
+.adminUserCard .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adminUserCard .actions button {
+  border-radius: 4px;
+  padding: 0.2em 0.5em;
+  margin: 0 0.4em;
+}
+
+.adminUserCard .actions .actionEdit {
+  background-color: rgb(0, 207, 187);
+}
+
+.adminUserCard .actions .actionDelete {
+  background-color: red;
+}
