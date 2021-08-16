@@ -5,7 +5,10 @@ import styles from "../../styles/register.module.css";
 
 import { logIn } from "../../utils/fetchers";
 
+import { setCredentials } from "../../utils/misc";
+
 import Header from '../../components/Header';
+import router from 'next/router';
 
 const TeacherLogin = () => {
 
@@ -25,7 +28,8 @@ const TeacherLogin = () => {
         // console.log(logInResponse);
 
         if (logInResponse.message === "Login Successful") {
-            // do stuff here
+            setCredentials(logInResponse.name, logInResponse.token);
+            router.replace("/admin");
         } else {
             alert("Something went wrong. Please make sure your email and password are correct");
         }
